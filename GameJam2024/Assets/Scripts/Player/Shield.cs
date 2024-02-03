@@ -15,6 +15,9 @@ public class Shield : MonoBehaviour
     AudioSource audio;
     public AudioClip shieldHitAudio;
     public AudioClip shieldReflectAudio;
+    [SerializeField] private float slowdownTime;
+    [SerializeField] private float timer;
+    private bool slowdownCheck = false;
 
     private void Awake()
     {
@@ -22,6 +25,7 @@ public class Shield : MonoBehaviour
         shieldInput.InGame.ShieldParry.started += OnShieldParry;
         OnEnable();
         audio = GetComponent<AudioSource>();
+        timer = slowdownTime;
     }
 
     private void OnEnable()
@@ -37,6 +41,19 @@ public class Shield : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
+
+        //For timer
+        if (slowdownCheck == true)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                slowdownCheck = false;
+                timer = slowdownTime;
+                Time.timeScale = 1f;
+
+            }
+        }
     }
 
     public void OnShieldParry(InputAction.CallbackContext context)
@@ -63,6 +80,9 @@ public class Shield : MonoBehaviour
         if (other.tag == "Projectile")
         {
             //Change this later when the parry is in place
+            Time.timeScale = 0.2f;
+            slowdownCheck = true;
+
             AudioManager.Instance.Play("ShieldHit");
             Debug.Log("Sound Effect Shield Hit");
             other.GetComponent<Projectile>().ReturnToSender(transform);
