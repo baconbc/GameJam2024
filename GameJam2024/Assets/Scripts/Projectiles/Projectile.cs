@@ -5,10 +5,11 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] protected float speed;
+    [SerializeField] protected int damage;
     //[SerializeField] protected float bouncesRemaining; For later
 
     private Rigidbody2D rb;
-    private string noCollide = "Enemy";
+    private string noCollide = "Enemy"; //at the start, projectiles cannot hit other enemies
 
     // Start is called before the first frame update
     public virtual void Start()
@@ -33,13 +34,30 @@ public class Projectile : MonoBehaviour
 
 
         
-        if (other.tag == noCollide)
+        if (other.tag == noCollide || other.tag == "Projectile")
         {
             return;
         }
         else
         {
-            Destroy(gameObject);
+            if (other.tag == "Player")
+                other.GetComponent<PlayerHealth>().TakeDamage(damage);
+            else if (other.tag == "Enemy")
+                other.GetComponent<EnemyHealth>().TakeDamage(damage);
+
+            if (other.tag != "Shield")
+                Destroy(gameObject);
         }
+    }
+
+    public void ReturnToSender(Transform shield)
+    {
+        noCollide = "Player"; // projectile has been parried and now targets enemies instead of players
+
+        float y = (transform.position.y - shield.position.y)/shield.GetComponent<BoxCollider2D>().bounds.size.y;
+        float x = (transform.position.x - shield.position.x)/shield.GetComponent<BoxCollider2D>().bounds.size.x;
+        Vector2 dir = new Vector2(x, y).normalized;
+
+        rb.velocity = dir * speed;
     }
 }
