@@ -5,7 +5,7 @@ using UnityEngine;
 public class BasicEnemyShoot : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] private GameObject player;
+    [SerializeField] private PlayerObject pr;
     [SerializeField] private GameObject projectile;
     [SerializeField] private float shootFrequency;
 
@@ -32,7 +32,7 @@ public class BasicEnemyShoot : MonoBehaviour
 
     private void Shoot()
     {
-        Vector3 direction = player.transform.position - transform.position;
+        Vector3 direction = (Vector3)pr.Position - transform.position;
         float rotation = (Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg) + 90;  // Add 90 degrees, since bullet starts facing up
         Instantiate(projectile, rb.position, Quaternion.Euler(0, 0, rotation));
     }
