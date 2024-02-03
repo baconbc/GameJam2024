@@ -8,14 +8,14 @@ public class Projectile : MonoBehaviour
     [SerializeField] protected int damage;
     //[SerializeField] protected float bouncesRemaining; For later
 
-    private Rigidbody2D rb;
-    private string noCollide = "Enemy"; //at the start, projectiles cannot hit other enemies
+    public Rigidbody2D rb;
+    public string noCollide = "Enemy"; //at the start, projectiles cannot hit other enemies
 
     // Start is called before the first frame update
     public virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.AddForce(transform.up * speed, ForceMode2D.Impulse);
+        rb.velocity = transform.up * speed; //Old format - AddForce(transform.up * speed, ForceMode2D.Impulse);
     }
 
     // Update is called once per frame
@@ -24,7 +24,7 @@ public class Projectile : MonoBehaviour
         
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("collided");
         // Fetch/cache the GameObject you collided with
