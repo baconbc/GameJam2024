@@ -12,12 +12,14 @@ public class Shield : MonoBehaviour
 
     // Input
     private PlayerInput shieldInput;
+    AudioSource audio;
 
     private void Awake()
     {
         shieldInput = new PlayerInput();
         shieldInput.InGame.ShieldParry.started += OnShieldParry;
         OnEnable();
+        audio = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
@@ -37,6 +39,7 @@ public class Shield : MonoBehaviour
 
     public void OnShieldParry(InputAction.CallbackContext context)
     {
+        audio.Play(0);
         print("parry");
     }
 
@@ -57,6 +60,8 @@ public class Shield : MonoBehaviour
 
         if (other.tag == "Projectile")
         {
+            //Change this later when the parry is in place
+            audio.Play(0);
             other.GetComponent<Projectile>().ReturnToSender(transform);
         }
     }
