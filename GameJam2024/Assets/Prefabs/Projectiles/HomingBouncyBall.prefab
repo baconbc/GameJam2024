@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7911852784290770333}
   - component: {fileID: 3867730082638237579}
-  - component: {fileID: 1664710496476156123}
+  - component: {fileID: -226663325446984654}
   - component: {fileID: 3903952946643448604}
   - component: {fileID: 1887699638645500612}
   m_Layer: 0
-  m_Name: BouncyBall
+  m_Name: HomingBouncyBall
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1664710496476156123
+--- !u!114 &-226663325446984654
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2237444707367915770}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79745fd091f4ac34991ece49e772ead3, type: 3}
+  m_Script: {fileID: 11500000, guid: 20ba73cbc5ab1ff4da2f0d5b44026700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
@@ -104,6 +104,8 @@ MonoBehaviour:
   bouncesRemaining: 10000
   rb: {fileID: 3903952946643448604}
   noCollide: Enemy
+  target: {fileID: 1319709877809733495, guid: d5f23e63d0a30a645955449ba25d6c42, type: 3}
+  Curvature: 3
 --- !u!50 &3903952946643448604
 Rigidbody2D:
   serializedVersion: 4
