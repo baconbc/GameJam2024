@@ -18,6 +18,7 @@ public class Shield : MonoBehaviour
     [SerializeField] private float slowdownTime;
     [SerializeField] private float timer;
     private bool slowdownCheck = false;
+    [SerializeField] private bool doSlowdown;
 
     private void Awake()
     {
@@ -80,8 +81,11 @@ public class Shield : MonoBehaviour
         if (other.tag == "Projectile")
         {
             //Change this later when the parry is in place
+            if (doSlowdown == true)
+            {
             Time.timeScale = 0.2f;
             slowdownCheck = true;
+            }
 
             AudioManager.Instance.Play("ShieldHit");
             Debug.Log("Sound Effect Shield Hit");
