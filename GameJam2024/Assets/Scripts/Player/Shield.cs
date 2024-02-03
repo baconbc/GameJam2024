@@ -62,6 +62,7 @@ public class Shield : MonoBehaviour
         {
             //Change this later when the parry is in place
             audio.Play(0);
+            Debug.Log("Sound Effect");
             other.GetComponent<Projectile>().ReturnToSender(transform);
         }
     }
