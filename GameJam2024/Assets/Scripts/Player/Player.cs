@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
         pr.SpawnPoint = transform.position;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         pr.MousePos = (Vector2)Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         pr.Position = transform.position;
