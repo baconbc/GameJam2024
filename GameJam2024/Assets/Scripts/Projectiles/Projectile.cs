@@ -36,7 +36,7 @@ public class Projectile : MonoBehaviour
         }
         else if (other.tag == "Player") //Destroy Self and Damage Player
         {
-            other.GetComponent<PlayerHealth>().TakeDamage(damage);
+            other.GetComponentInChildren<IHealth>().TakeDamage(damage);
             Destroy(gameObject);
         }
         //else if (other.tag == "Enemy") //Destroy self and Damage Enemy
@@ -56,7 +56,7 @@ public class Projectile : MonoBehaviour
             else //Deletes otherwise
             {
                 if (other.tag == "Player")
-                    other.GetComponentsInChildren<PlayerHealth>()[0].TakeDamage(damage);
+                    other.GetComponentInChildren<IHealth>().TakeDamage(damage);
                 //else if (other.tag == "Enemy")
                 //    other.GetComponent<EnemyHealth>().TakeDamage(damage);
 

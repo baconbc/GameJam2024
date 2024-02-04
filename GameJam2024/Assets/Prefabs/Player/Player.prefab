@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 2067396891645887131}
   - component: {fileID: 2288714914150178839}
   - component: {fileID: 8387533211377250841}
-  - component: {fileID: 207637774119525424}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -242,20 +241,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pr: {fileID: 11400000, guid: a9e6686043369a14ca4532bb5bdbab96, type: 2}
---- !u!114 &207637774119525424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1319709877809733495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f2f3b6d0e8d23142859b4c7c4506f3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pr: {fileID: 11400000, guid: a9e6686043369a14ca4532bb5bdbab96, type: 2}
-  maxHealth: 100
 --- !u!1 &4294539627714787207
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,6 +527,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1694936524286144902}
   - component: {fileID: 16008381878463695}
+  - component: {fileID: 1431825105552194160}
   m_Layer: 7
   m_Name: HealthCollider
   m_TagString: Player
@@ -599,3 +585,17 @@ CapsuleCollider2D:
   m_Offset: {x: -0.000023394823, y: -0.03364727}
   m_Size: {x: 0.98876023, y: 1.9327055}
   m_Direction: 0
+--- !u!114 &1431825105552194160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5891104942705769153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f2f3b6d0e8d23142859b4c7c4506f3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  pr: {fileID: 11400000, guid: a9e6686043369a14ca4532bb5bdbab96, type: 2}

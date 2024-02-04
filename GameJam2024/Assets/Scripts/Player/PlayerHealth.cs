@@ -2,29 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : IHealth
 {
-    [SerializeField] private PlayerObject pr; 
-    [SerializeField] private int maxHealth;
+    [SerializeField] private PlayerObject pr;
 
-    private void Awake()
-    {
-        pr.Health = maxHealth;
-    }
-
-    public void TakeDamage(int damage)
-    {
-        pr.Health -= damage;
-        if (pr.Health <= 0)
-        {
-            pr.Health = 0;
-            Die();
-        }
-        Signal signal = GameSignals.UpdatePlayerHealth;
-        signal.Dispatch();
-    }
-
-    private void Die()
+    protected override void Die()
     {
         print("you died! restarting the level");
         pr.GameObject.transform.position = pr.SpawnPoint;
@@ -32,10 +14,9 @@ public class PlayerHealth : MonoBehaviour
         ResetHealth();
     }
 
-    public void ResetHealth()
+    protected override void OnSetHealth()
     {
-        pr.Health = maxHealth;
-
+        pr.Health = GetHealth();
         Signal signal = GameSignals.UpdatePlayerHealth;
         signal.Dispatch();
     }
