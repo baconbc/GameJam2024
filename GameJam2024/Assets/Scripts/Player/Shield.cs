@@ -18,7 +18,7 @@ public class Shield : MonoBehaviour
     [SerializeField] private float parryCooldown; // 1 sec cooldown so that players cannot spam click and must time parry right
     private bool cooldown = false;
     private bool parrying = false;
-    private float maxParryTime = 0.1f;
+    [SerializeField] private float maxParryTime = 0.1f; // how long player has to parry something
     private float parryTimer;
 
     // Audio
