@@ -29,4 +29,11 @@ public class SinWave : Projectile
 
         MainDirection = rb.velocity.normalized;
     }
+
+    public override void ReturnToSender(Transform shield, Collision2D collision)
+    {
+        base.ReturnToSender(shield, collision);
+
+        MainDirection = rb.velocity.normalized;
+    }
 }
