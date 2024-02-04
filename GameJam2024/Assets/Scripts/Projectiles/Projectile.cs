@@ -38,11 +38,11 @@ public class Projectile : MonoBehaviour
             other.GetComponent<PlayerHealth>().TakeDamage(damage);
             Destroy(gameObject);
         }
-        else if (other.tag == "Enemy") //Destroy self and Damage Enemy
-        {
-            other.GetComponent<EnemyHealth>().TakeDamage(damage);
-            Destroy(gameObject);
-        }
+        //else if (other.tag == "Enemy") //Destroy self and Damage Enemy
+        //{
+        //    other.GetComponent<EnemyHealth>().TakeDamage(damage);
+        //    Destroy(gameObject);
+        //}
         else //Reflects off of object
         {
             if (bouncesRemaining > 0) //Bounces if bounces are remaining
@@ -77,5 +77,11 @@ public class Projectile : MonoBehaviour
         rb.rotation = rotation;
 
         rb.velocity = dir * speed;
+    }
+
+
+    public int GetDamage()
+    {
+        return damage;
     }
 }

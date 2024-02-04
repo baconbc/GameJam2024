@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7631897979347755079}
   - component: {fileID: 2497466554054572383}
+  - component: {fileID: 754640946912365021}
   m_Layer: 7
   m_Name: HealthCollider
   m_TagString: Untagged
@@ -67,6 +68,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0.005928993, y: -0.02173847}
   m_Size: {x: 0.74900436, y: 1.9683515}
   m_Direction: 0
+--- !u!114 &754640946912365021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6112658084047065442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d6cab4c8a927e743ad336412a874d4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 30
 --- !u!1 &6536080735805865685
 GameObject:
   m_ObjectHideFlags: 0
@@ -78,7 +92,6 @@ GameObject:
   - component: {fileID: 4150176480869803975}
   - component: {fileID: 3256803556330873649}
   - component: {fileID: 4371416567293865656}
-  - component: {fileID: 5879519567224801024}
   - component: {fileID: 3796231743678225447}
   - component: {fileID: 4574691942262823261}
   m_Layer: 9
@@ -172,19 +185,6 @@ MonoBehaviour:
   projectile: {fileID: 552362932122398001, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
   shootFrequency: 2
   timer: 0
---- !u!114 &5879519567224801024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6536080735805865685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d6cab4c8a927e743ad336412a874d4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 20
 --- !u!50 &3796231743678225447
 Rigidbody2D:
   serializedVersion: 4
