@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e0dabe8b5edc05c4bb44ddc33152e898
+guid: 2cc75884619072545b02e024645b8e18
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,112 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: brazier_unlit_0
+      name: debug_numbers_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72960fa815aceb448856e4e1303e12b3
+      internalID: 93891489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: debug_numbers_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64f6d8f0b57c1e8468c4065f71f9bd41
+      internalID: -279942020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: debug_numbers_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaf9e8e3ba384aa4b8e57dc259559426
+      internalID: -1241740557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: debug_numbers_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: feebb021dcb87fa47b8e40dbac023e5f
+      internalID: -1133360921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: debug_numbers_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00c999ed7ab508e4fabe771d67adbb60
+      internalID: 884976178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: debug_numbers_5
       rect:
         serializedVersion: 2
         x: 16
@@ -118,24 +223,62 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -7, y: -7}
-        - {x: -7, y: -8}
-        - {x: 7, y: -8}
-        - {x: 7, y: -7}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5ccf13e7b9077344b520773884f24f4
-      internalID: 1545860861
+      spriteID: afebe5285fd45d548b51465ca849ce92
+      internalID: 29209421
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: brazier_unlit_1
+      name: debug_numbers_6
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62d1cb360c037e744bc11eaabb885e61
+      internalID: 583147713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: debug_numbers_7
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7771a2db63d96c4980a79685b1676f2
+      internalID: 1645206271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: debug_numbers_8
       rect:
         serializedVersion: 2
         x: 0
@@ -143,24 +286,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: 7, y: -7}
-        - {x: 8, y: -7}
-        - {x: 8, y: 7}
-        - {x: 7, y: 7}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 911a70a1d0c981f43a58eb189ed1f46a
-      internalID: 947781222
+      spriteID: 1ce962546b564a8478fbcb4b6bba59dc
+      internalID: 1363063022
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: brazier_unlit_2
+      name: debug_numbers_9
       rect:
         serializedVersion: 2
         x: 16
@@ -168,68 +307,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -8, y: 8}
-        - {x: -8, y: -8}
-        - {x: 8, y: -8}
-        - {x: 8, y: 8}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d80e1560199d16e4b93a27128389f035
-      internalID: 1088673247
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: brazier_unlit_3
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape:
-      - - {x: -8, y: 7}
-        - {x: -8, y: -7}
-        - {x: -7, y: -7}
-        - {x: -7, y: 7}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7f1ecfcffa404b145be57b08ae2dff41
-      internalID: 1791378951
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: brazier_unlit_4
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape:
-      - - {x: -7, y: 8}
-        - {x: -7, y: 7}
-        - {x: 7, y: 7}
-        - {x: 7, y: 8}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1463426766e065c4797d193c34b746f9
-      internalID: -2018378725
+      spriteID: 299492eacca0ae04daada10100716e01
+      internalID: -754394777
       vertices: []
       indices: 
       edges: []
@@ -245,11 +330,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      brazier_unlit_0: 1545860861
-      brazier_unlit_1: 947781222
-      brazier_unlit_2: 1088673247
-      brazier_unlit_3: 1791378951
-      brazier_unlit_4: -2018378725
+      debug_numbers_0: 93891489
+      debug_numbers_1: -279942020
+      debug_numbers_2: -1241740557
+      debug_numbers_3: -1133360921
+      debug_numbers_4: 884976178
+      debug_numbers_5: 29209421
+      debug_numbers_6: 583147713
+      debug_numbers_7: 1645206271
+      debug_numbers_8: 1363063022
+      debug_numbers_9: -754394777
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
