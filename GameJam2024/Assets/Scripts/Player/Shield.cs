@@ -12,6 +12,9 @@ public class Shield : MonoBehaviour
 
     // Input
     private PlayerInput shieldInput;
+    private Vector2 mousePos;
+
+    // Audio
     AudioSource audio;
     public AudioClip shieldHitAudio;
     public AudioClip shieldReflectAudio;
@@ -41,19 +44,23 @@ public class Shield : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Move();
-
-        //For timer
-        if (slowdownCheck == true)
+        if (mousePos != pr.MousePos)
         {
-            timer -= Time.deltaTime;
-            if (timer <= 0)
+            //For timer
+            if (slowdownCheck == true)
             {
-                slowdownCheck = false;
-                timer = slowdownTime;
-                Time.timeScale = 1f;
+                timer -= Time.deltaTime;
+                if (timer <= 0)
+                {
+                    slowdownCheck = false;
+                    timer = slowdownTime;
+                    Time.timeScale = 1f;
 
+                }
             }
+
+            mousePos = pr.MousePos;
+            Move();
         }
     }
 
@@ -65,7 +72,7 @@ public class Shield : MonoBehaviour
 
     public void Move()
     {
-        Vector2 direction = (pr.MousePos - pr.Position).normalized;
+        Vector2 direction = (mousePos - pr.Position).normalized;
         Vector2 pos = (pr.Position += new Vector2(0, 0.25f)) + (direction * radius);
 
         // Calculate the angle in radians
@@ -74,7 +81,7 @@ public class Shield : MonoBehaviour
         transform.SetPositionAndRotation(pos, Quaternion.Euler(new Vector3(0f, 0f, angle + 180f)));
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject other = collision.gameObject;
 
@@ -83,13 +90,14 @@ public class Shield : MonoBehaviour
             //Change this later when the parry is in place
             if (doSlowdown == true)
             {
-            Time.timeScale = 0.2f;
-            slowdownCheck = true;
+                Time.timeScale = 0.2f;
+                slowdownCheck = true;
             }
 
             AudioManager.Instance.Play("ShieldHit");
             Debug.Log("Sound Effect Shield Hit");
-            other.GetComponent<Projectile>().ReturnToSender(transform);
+
+            other.GetComponent<Projectile>().ReturnToSender(transform, collision);
         }
     }
 }
