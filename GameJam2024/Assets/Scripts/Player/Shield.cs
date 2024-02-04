@@ -14,6 +14,13 @@ public class Shield : MonoBehaviour
     private PlayerInput shieldInput;
     private Vector2 mousePos;
 
+    // Parry
+    [SerializeField] private float parryCooldown; // 1 sec cooldown so that players cannot spam click and must time parry right
+    private bool cooldown = false;
+    private bool parrying = false;
+    private float maxParryTime = 0.1f;
+    private float parryTimer;
+
     // Audio
     AudioSource audio;
     public AudioClip shieldHitAudio;
@@ -47,7 +54,7 @@ public class Shield : MonoBehaviour
         if (mousePos != pr.MousePos)
         {
             //For timer
-            if (slowdownCheck == true)
+            /*if (slowdownCheck == true)
             {
                 timer -= Time.deltaTime;
                 if (timer <= 0)
@@ -57,23 +64,48 @@ public class Shield : MonoBehaviour
                     Time.timeScale = 1f;
 
                 }
-            }
+            }*/
 
             mousePos = pr.MousePos;
             Move();
+        }
+
+        if (parrying)
+        {
+            if (parryTimer < maxParryTime)
+                parryTimer += Time.fixedDeltaTime;
+            else
+            {
+                parryTimer = 0f;
+                parrying = false;
+                cooldown = true;
+            }
+        }
+
+        if (cooldown)
+        {
+            if (parryTimer < parryCooldown)
+                parryTimer += Time.fixedDeltaTime;
+            else
+            {
+                parryTimer = 0f;
+                cooldown = false;
+            }
         }
     }
 
     public void OnShieldParry(InputAction.CallbackContext context)
     {
-        AudioManager.Instance.Play("ShieldReflect");
-        print("parry");
+        if (!cooldown)
+        {
+            parrying = true;
+        }
     }
 
     public void Move()
     {
         Vector2 direction = (mousePos - pr.Position).normalized;
-        Vector2 pos = (pr.Position += new Vector2(0, 0.25f)) + (direction * radius);
+        Vector2 pos = pr.Position + (direction * radius);
 
         // Calculate the angle in radians
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -87,17 +119,33 @@ public class Shield : MonoBehaviour
 
         if (other.tag == "Projectile")
         {
-            //Change this later when the parry is in place
-            if (doSlowdown == true)
+            if (parrying)
             {
-                Time.timeScale = 0.2f;
-                slowdownCheck = true;
+                Parry(collision);
             }
-
-            AudioManager.Instance.Play("ShieldHit");
-            Debug.Log("Sound Effect Shield Hit");
-
-            other.GetComponent<Projectile>().ReturnToSender(transform, collision);
+            else
+            {
+                Block(collision);
+            }
         }
+    }
+
+    private void Parry(Collision2D collision)
+    {
+        //Change this later when the parry is in place
+        /*if (doSlowdown == true)
+        {
+            Time.timeScale = 0.2f;
+            slowdownCheck = true;
+        }*/
+
+        collision.gameObject.GetComponent<Projectile>().ReturnToSender(transform, collision);
+        AudioManager.Instance.Play("ShieldReflect");
+    }
+
+    private void Block(Collision2D collision)
+    {
+        Destroy(collision.gameObject);
+        AudioManager.Instance.Play("ShieldHit");
     }
 }

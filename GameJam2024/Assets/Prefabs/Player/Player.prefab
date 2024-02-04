@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2067396891645887131}
   - component: {fileID: 2288714914150178839}
   - component: {fileID: 8387533211377250841}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 54894598154257709}
@@ -108,7 +108,7 @@ SpriteRenderer:
   m_SortingLayerID: -427826451
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1128524594, guid: e21a4e93fdf9f794f96ba8323da226f9, type: 3}
+  m_Sprite: {fileID: -1100353550, guid: d77950627ae2eb14abbb6666c2f6927c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -127,7 +127,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1319709877809733495}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 5e2458da55173184399a6da5946dfba1, type: 2}
   m_CullingMode: 0
@@ -215,18 +215,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.004278958, y: -0.90713006}
+  m_Offset: {x: -0.0009354055, y: -0.8458611}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2}
+    oldSize: {x: 1.25, y: 1.9375}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.64912903, y: 0.18573987}
+  m_Size: {x: 0.7534167, y: 0.25613403}
   m_EdgeRadius: 0
 --- !u!114 &8387533211377250841
 MonoBehaviour:
@@ -342,7 +342,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pr: {fileID: 11400000, guid: a9e6686043369a14ca4532bb5bdbab96, type: 2}
-  radius: 2
+  radius: 1
+  parryCooldown: 1
   shieldHitAudio: {fileID: 0}
   shieldReflectAudio: {fileID: 0}
   slowdownTime: 0.1
@@ -413,7 +414,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.7818669
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -526,7 +527,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1694936524286144902}
   - component: {fileID: 16008381878463695}
-  - component: {fileID: 4027508882579743561}
+  - component: {fileID: 1431825105552194160}
   m_Layer: 7
   m_Name: HealthCollider
   m_TagString: Player
@@ -581,10 +582,10 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0031949282, y: -0.0336473}
-  m_Size: {x: 0.77635574, y: 1.9327054}
+  m_Offset: {x: -0.000023394823, y: -0.03364727}
+  m_Size: {x: 0.98876023, y: 1.9327055}
   m_Direction: 0
---- !u!114 &4027508882579743561
+--- !u!114 &1431825105552194160
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -596,5 +597,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f2f3b6d0e8d23142859b4c7c4506f3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pr: {fileID: 11400000, guid: a9e6686043369a14ca4532bb5bdbab96, type: 2}
   maxHealth: 100
+  pr: {fileID: 11400000, guid: a9e6686043369a14ca4532bb5bdbab96, type: 2}

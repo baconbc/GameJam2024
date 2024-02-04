@@ -1,28 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class EnemyHealth : IHealth
 {
-    [SerializeField] private int maxHealth;
-    private int health;
+    [SerializeField] private GameObject bloodSplatter;
 
-    private void Awake()
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        health = maxHealth;
-    }
-
-    public void TakeDamage(int damage)
-    {
-        health -= damage;
-        if (health <= 0)
+        if (collision.gameObject.tag == "Projectile")
         {
-            Die();
+            Projectile p = collision.gameObject.GetComponent<Projectile>();
+            if (p.noCollide != "Enemy")
+            {
+                Debug.Log("hit by bullet");
+                TakeDamage(p.GetDamage());
+                Destroy(p.gameObject);
+            }
         }
     }
 
-    private void Die()
+    protected override void Die()
     {
-        Destroy(gameObject);
+        Instantiate(bloodSplatter, transform.position, Quaternion.identity);
+        Destroy(transform.parent.gameObject);
+    }
+
+    protected override void OnSetHealth()
+    {
+        return;
     }
 }
