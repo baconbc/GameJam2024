@@ -16,6 +16,7 @@ public class EnterRoom : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player") 
         {
+            print("hey");
             RoomScript.StartRoom();
         }
     }

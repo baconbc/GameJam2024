@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3256803556330873649, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -705463172, guid: 8cf4418c4c2503140b29149d1fc229d3, type: 3}
     - target: {fileID: 4150176480869803975, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.27
@@ -54,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6536080735805865685, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
       propertyPath: m_Name
-      value: Enemy (3) Variant
+      value: Tower
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
