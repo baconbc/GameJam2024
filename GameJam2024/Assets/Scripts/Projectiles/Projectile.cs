@@ -65,7 +65,7 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    public void ReturnToSender(Transform shield, Collision2D collision)
+    public virtual void ReturnToSender(Transform shield, Collision2D collision)
     {
         noCollide = "Player"; // projectile has been parried and now targets enemies instead of players
 
