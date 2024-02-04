@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 754640946912365021, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
       propertyPath: maxHealth
-      value: 15
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 3256803556330873649, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
       propertyPath: m_Color.b
@@ -68,13 +68,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: AxeThrower
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4836316653843714442, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6536080735805865685, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8419830710239890448}
+    - targetCorrespondingSourceObject: {fileID: 6536080735805865685, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1362091736024211511}
   m_SourcePrefab: {fileID: 100100000, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
 --- !u!1 &2892105417963951460 stripped
 GameObject:
@@ -96,3 +100,15 @@ MonoBehaviour:
   player: {fileID: 11400000, guid: a9e6686043369a14ca4532bb5bdbab96, type: 2}
   distance: 4.5
   maxSpeed: 3
+--- !u!114 &1362091736024211511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2892105417963951460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f3607380cb123a47beff3ff652b840b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

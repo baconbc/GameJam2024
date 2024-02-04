@@ -10,7 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 552362932122398001, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
       propertyPath: m_Name
-      value: Projectile Variant
+      value: IceSplitProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 3498543995336930879, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8018868
+      objectReference: {fileID: 0}
+    - target: {fileID: 3498543995336930879, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
+      propertyPath: m_Color.g
+      value: 0.1714269
+      objectReference: {fileID: 0}
+    - target: {fileID: 3498543995336930879, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
+      propertyPath: m_Color.r
+      value: 0.094562106
       objectReference: {fileID: 0}
     - target: {fileID: 5565129707833972661, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -81,9 +93,10 @@ MonoBehaviour:
   speed: 5
   damage: 10
   bouncesRemaining: 0
+  effectType: 2
   rb: {fileID: 0}
   noCollide: Enemy
-  splitProjectile: {fileID: 552362932122398001, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
+  splitProjectile: {fileID: 847880466701243063, guid: 7bdb2a631094efe48b8cb0489578b9db, type: 3}
   timeToSplit: 0.5
   numSplitProjectiles: 3
   splitAngleDiff: 15
