@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyHealth : IHealth
 {
-    [SerializeField] CapsuleCollider2D cc;
+    [SerializeField] private List<GameObject> bloodPatterns;
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -20,18 +21,10 @@ public class EnemyHealth : IHealth
         }
     }
 
-    //public void TakeDamage(int damage)
-    //{
-    //    health -= damage;
-    //    Debug.Log(health);
-    //    if (health <= 0)
-    //    {
-    //        Die();
-    //    }
-    //}
-
     protected override void Die()
     {
+        int bloodIndex = Random.Range(0, bloodPatterns.Count);
+        Instantiate(bloodPatterns[bloodIndex], transform.position, Quaternion.identity);
         Destroy(transform.parent.gameObject);
     }
 

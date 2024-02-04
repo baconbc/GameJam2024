@@ -81,6 +81,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 30
+  bloodPatterns:
+  - {fileID: 9132454483215827099, guid: 4932241e1847a00469b204bde7a8d341, type: 3}
+  - {fileID: 179960890156002475, guid: 14bab7517f2e8fb4a8990ee3f4925d22, type: 3}
+  - {fileID: 7623905827796461737, guid: 61d8fc93cb6290746919d45453b62b12, type: 3}
 --- !u!1 &6536080735805865685
 GameObject:
   m_ObjectHideFlags: 0
