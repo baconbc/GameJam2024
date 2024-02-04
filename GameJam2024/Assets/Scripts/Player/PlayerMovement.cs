@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : IMovement
 {
     [SerializeField] private int speed = 5;
 
@@ -40,6 +40,11 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void FixedUpdate()
+    {
+        Move();
+    }
+
+    protected override void Move()
     {
         rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime); // use fixedDeltaTime instead of deltaTime cuz in FixedUpdate() not Update()
     }
