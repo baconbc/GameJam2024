@@ -125,7 +125,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""1e14a510-7fb1-4d7a-80f9-0a7797b9ed1d"",
-                    ""path"": ""<Mouse>/{SecondaryAction}"",
+                    ""path"": ""<Mouse>/{PrimaryAction}"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
