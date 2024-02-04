@@ -24,7 +24,7 @@ public class Projectile : MonoBehaviour
         
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    public virtual void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject other = collision.gameObject;
 
