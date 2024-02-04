@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MaintainDistanceMovement : MonoBehaviour
+public class MaintainDistanceMovement : IMovement
 {
     [SerializeField] private PlayerObject player;
     [SerializeField] private float distance;
@@ -17,7 +17,12 @@ public class MaintainDistanceMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    private void FixedUpdate()
+    {
+        Move();
+    }
+
+    protected override void Move()
     {
         Vector3 fromPlayerDirection = transform.position - (Vector3)player.Position;
         Vector3 pointFromPlayer = (Vector3)player.Position + fromPlayerDirection.normalized * distance;

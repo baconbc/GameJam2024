@@ -7,7 +7,9 @@ public class Projectile : MonoBehaviour
     [SerializeField] protected float speed;
     [SerializeField] protected int damage;
     [SerializeField] protected int bouncesRemaining;
+    [SerializeField] public StatusEffectType effectType;
 
+    
     public Rigidbody2D rb;
     public string noCollide = "Enemy"; //at the start, projectiles cannot hit other enemies
 
@@ -27,8 +29,6 @@ public class Projectile : MonoBehaviour
     public virtual void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject other = collision.gameObject;
-        Debug.Log(other.tag);
-        Debug.Log(other.tag == noCollide);
 
         if (other.tag == noCollide || other.tag == "Projectile")
         {
@@ -37,6 +37,7 @@ public class Projectile : MonoBehaviour
         else if (other.tag == "Player") //Destroy Self and Damage Player
         {
             other.GetComponentInChildren<IHealth>().TakeDamage(damage);
+            other.GetComponent<StatusEffectManager>().AddEffect(effectType);
             Destroy(gameObject);
         }
         //else if (other.tag == "Enemy") //Destroy self and Damage Enemy

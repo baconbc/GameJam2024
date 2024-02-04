@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &8256787247249107889
+--- !u!1001 &6454942924019935839
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -8,29 +8,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 754640946912365021, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
-      propertyPath: maxHealth
-      value: 1000
+    - target: {fileID: 2497466554054572383, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
+      propertyPath: m_Size.x
+      value: 1.0120572
+      objectReference: {fileID: 0}
+    - target: {fileID: 2497466554054572383, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
+      propertyPath: m_Size.y
+      value: 0.7351948
+      objectReference: {fileID: 0}
+    - target: {fileID: 2497466554054572383, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.03344825
+      objectReference: {fileID: 0}
+    - target: {fileID: 2497466554054572383, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.078169055
       objectReference: {fileID: 0}
     - target: {fileID: 3256803556330873649, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
-      propertyPath: m_Color.b
-      value: 0.3207547
-      objectReference: {fileID: 0}
-    - target: {fileID: 3256803556330873649, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
-      propertyPath: m_Color.g
-      value: 0.3207547
-      objectReference: {fileID: 0}
-    - target: {fileID: 3256803556330873649, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
-      propertyPath: m_Color.r
-      value: 0.3207547
-      objectReference: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: eda8ab48d89e9d54081246294037bd0b, type: 3}
     - target: {fileID: 4150176480869803975, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 5.049
       objectReference: {fileID: 0}
     - target: {fileID: 4150176480869803975, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4150176480869803975, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -64,51 +68,85 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4371416567293865656, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 1456757080096406338, guid: aeb79eb51880cdb47942ba6b5c01f8c0, type: 3}
+    - target: {fileID: 4371416567293865656, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
+      propertyPath: shootFrequency
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4574691942262823261, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
+      propertyPath: m_Size.x
+      value: 0.56012154
+      objectReference: {fileID: 0}
+    - target: {fileID: 4574691942262823261, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
+      propertyPath: m_Size.y
+      value: 0.19944774
+      objectReference: {fileID: 0}
+    - target: {fileID: 4574691942262823261, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.09392929
+      objectReference: {fileID: 0}
+    - target: {fileID: 4574691942262823261, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.3407947
+      objectReference: {fileID: 0}
+    - target: {fileID: 4574691942262823261, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6536080735805865685, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
       propertyPath: m_Name
-      value: AxeThrower
+      value: FireCat
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: -4836316653843714442, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
+    - {fileID: 4371416567293865656, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6536080735805865685, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8419830710239890448}
+      addedObject: {fileID: 4486313489410287808}
     - targetCorrespondingSourceObject: {fileID: 6536080735805865685, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1362091736024211511}
+      addedObject: {fileID: 1613228896023467112}
   m_SourcePrefab: {fileID: 100100000, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
---- !u!1 &2892105417963951460 stripped
+--- !u!1 &225253301012812938 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6536080735805865685, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
-  m_PrefabInstance: {fileID: 8256787247249107889}
+  m_PrefabInstance: {fileID: 6454942924019935839}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8419830710239890448
+--- !u!114 &4486313489410287808
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2892105417963951460}
+  m_GameObject: {fileID: 225253301012812938}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59be08f326401164a917d64ea038c0b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 11400000, guid: a9e6686043369a14ca4532bb5bdbab96, type: 2}
-  distance: 4.5
+  distance: 6
   maxSpeed: 3
---- !u!114 &1362091736024211511
+--- !u!114 &1613228896023467112
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2892105417963951460}
+  m_GameObject: {fileID: 225253301012812938}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f3607380cb123a47beff3ff652b840b, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c345370d3ecf374c816dd167eae3901, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: a9e6686043369a14ca4532bb5bdbab96, type: 2}
+  projectile: {fileID: 1456757080096406338, guid: aeb79eb51880cdb47942ba6b5c01f8c0, type: 3}
+  shootFrequency: 3.5
+  sprayFrequency: 0.1
+  numProjectiles: 5
+  sprayDegrees: 40
