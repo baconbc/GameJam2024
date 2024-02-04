@@ -27,6 +27,8 @@ public class Projectile : MonoBehaviour
     public virtual void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject other = collision.gameObject;
+        Debug.Log(other.tag);
+        Debug.Log(other.tag == noCollide);
 
         if (other.tag == noCollide || other.tag == "Projectile")
         {
@@ -55,8 +57,8 @@ public class Projectile : MonoBehaviour
             {
                 if (other.tag == "Player")
                     other.GetComponentsInChildren<PlayerHealth>()[0].TakeDamage(damage);
-                else if (other.tag == "Enemy")
-                    other.GetComponent<EnemyHealth>().TakeDamage(damage);
+                //else if (other.tag == "Enemy")
+                //    other.GetComponent<EnemyHealth>().TakeDamage(damage);
 
                 if (other.tag != "Shield")
                     Destroy(gameObject);
