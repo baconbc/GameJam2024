@@ -34,6 +34,7 @@ public class Projectile : MonoBehaviour
         }
         else if (other.tag == "Player") //Destroy Self and Damage Player
         {
+            print(other);
             other.GetComponent<PlayerHealth>().TakeDamage(damage);
             Destroy(gameObject);
         }
@@ -53,7 +54,13 @@ public class Projectile : MonoBehaviour
             }
             else //Deletes otherwise
             {
-                Destroy(gameObject);
+                if (other.tag == "Player")
+                    other.GetComponentsInChildren<PlayerHealth>()[0].TakeDamage(damage);
+                else if (other.tag == "Enemy")
+                    other.GetComponent<EnemyHealth>().TakeDamage(damage);
+
+                if (other.tag != "Shield")
+                    Destroy(gameObject);
             }
         }
     }
@@ -65,6 +72,9 @@ public class Projectile : MonoBehaviour
         float y = (transform.position.y - shield.position.y)/shield.GetComponent<BoxCollider2D>().bounds.size.y;
         float x = (transform.position.x - shield.position.x)/shield.GetComponent<BoxCollider2D>().bounds.size.x;
         Vector2 dir = new Vector2(x, y).normalized;
+
+        float rotation = (Mathf.Atan2(-dir.y, -dir.x) * Mathf.Rad2Deg) + 90;
+        rb.rotation = rotation;
 
         rb.velocity = dir * speed;
     }
