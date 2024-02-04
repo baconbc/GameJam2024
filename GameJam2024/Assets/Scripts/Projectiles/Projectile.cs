@@ -27,6 +27,8 @@ public class Projectile : MonoBehaviour
     public virtual void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject other = collision.gameObject;
+        Debug.Log(other.tag);
+        Debug.Log(other.tag == noCollide);
 
         if (other.tag == noCollide || other.tag == "Projectile")
         {
@@ -37,11 +39,11 @@ public class Projectile : MonoBehaviour
             other.GetComponent<PlayerHealth>().TakeDamage(damage);
             Destroy(gameObject);
         }
-        else if (other.tag == "Enemy") //Destroy self and Damage Enemy
-        {
-            other.GetComponent<EnemyHealth>().TakeDamage(damage);
-            Destroy(gameObject);
-        }
+        //else if (other.tag == "Enemy") //Destroy self and Damage Enemy
+        //{
+        //    other.GetComponent<EnemyHealth>().TakeDamage(damage);
+        //    Destroy(gameObject);
+        //}
         else //Reflects off of object
         {
             if (bouncesRemaining > 0) //Bounces if bounces are remaining
@@ -55,8 +57,8 @@ public class Projectile : MonoBehaviour
             {
                 if (other.tag == "Player")
                     other.GetComponentsInChildren<PlayerHealth>()[0].TakeDamage(damage);
-                else if (other.tag == "Enemy")
-                    other.GetComponent<EnemyHealth>().TakeDamage(damage);
+                //else if (other.tag == "Enemy")
+                //    other.GetComponent<EnemyHealth>().TakeDamage(damage);
 
                 if (other.tag != "Shield")
                     Destroy(gameObject);
@@ -76,5 +78,11 @@ public class Projectile : MonoBehaviour
         rb.rotation = rotation;
 
         rb.velocity = dir * speed;
+    }
+
+
+    public int GetDamage()
+    {
+        return damage;
     }
 }
