@@ -6,7 +6,7 @@ public class BloodSplatter : MonoBehaviour
 {
     [SerializeField] private List<Sprite> bloodPatterns;
 
-    private float disappearAfter = 7;
+    [SerializeField] private float disappearAfter = 7;
     private float opacity = 1.0f;
     private float timer;
     private SpriteRenderer sr;

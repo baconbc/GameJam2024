@@ -15,6 +15,9 @@ public class Room : MonoBehaviour
 
     private AudioSource doorSound;
 
+    [SerializeField] private AudioClip openSound;
+    private AudioClip closeSound;
+
     private bool RoomActive = false;
     private bool CompletedRoom = false;
 
@@ -24,9 +27,35 @@ public class Room : MonoBehaviour
         fog.SetActive(true);
         triggers = transform.GetChild(1).gameObject;
 
+        GameSignals.PlayerDeath.AddListener(PlayerDeath);
 
         doorSound = GetComponent<AudioSource>();
+
+        closeSound = doorSound.clip;
     }
+
+    void OnDestroy()
+    {
+        GameSignals.PlayerDeath.RemoveListener(PlayerDeath);
+    }
+
+    private void PlayerDeath(ISignalParameters parameters)
+    {
+        if (!CompletedRoom && RoomActive)
+        {
+            ResetRoom();
+        }
+    }
+
+    private void ResetRoom()
+    {
+        foreach (GameObject enemy in livingEnemies) Destroy(enemy);
+        livingEnemies.Clear();
+        OpenDoors();
+        UnloadRoom();
+        EnableTriggers();
+    }
+
     private void FixedUpdate()
     {
         if (!CompletedRoom && RoomActive && livingEnemies.Count > 0)
@@ -48,6 +77,7 @@ public class Room : MonoBehaviour
     }
     public void StartRoom()
     {
+        print("bro");
         RoomActive = true;
         CloseDoors();
         DisableFog();
@@ -111,6 +141,7 @@ public class Room : MonoBehaviour
 
     public void OpenDoors()
     {
+        doorSound.clip = openSound;
         doorSound.Play();
         foreach (GameObject door in doors)
         {
