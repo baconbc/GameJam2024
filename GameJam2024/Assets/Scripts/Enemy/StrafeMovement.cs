@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StrafeMovement : MonoBehaviour
+public class StrafeMovement : IMovement
 {
     [SerializeField] private PlayerObject player;
     [SerializeField] private float speed;
@@ -20,10 +20,15 @@ public class StrafeMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         timer += Time.fixedDeltaTime;
+        Move();
+    }
 
+
+    protected override void Move()
+    {
         if (isMoving && timer > moveDuration)
         {
             // Stand still;
