@@ -6,16 +6,16 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] protected float speed;
     [SerializeField] protected int damage;
-    //[SerializeField] protected float bouncesRemaining; For later
+    [SerializeField] protected int bouncesRemaining;
 
-    private Rigidbody2D rb;
-    private string noCollide = "Enemy"; //at the start, projectiles cannot hit other enemies
+    public Rigidbody2D rb;
+    public string noCollide = "Enemy"; //at the start, projectiles cannot hit other enemies
 
     // Start is called before the first frame update
     public virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.AddForce(transform.up * speed, ForceMode2D.Impulse);
+        rb.velocity = transform.up * speed; //Old format - AddForce(transform.up * speed, ForceMode2D.Impulse);
     }
 
     // Update is called once per frame
@@ -24,33 +24,50 @@ public class Projectile : MonoBehaviour
         
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("collided");
-        // Fetch/cache the GameObject you collided with
         GameObject other = collision.gameObject;
 
-        Debug.Log(other.tag);
-
-
-        
         if (other.tag == noCollide || other.tag == "Projectile")
         {
             return;
         }
-        else
+        else if (other.tag == "Player") //Destroy Self and Damage Player
         {
+<<<<<<< Updated upstream
+            other.GetComponent<PlayerHealth>().TakeDamage(damage);
+            Destroy(gameObject);
+        }
+        else if (other.tag == "Enemy") //Destroy self and Damage Enemy
+        {
+            other.GetComponent<EnemyHealth>().TakeDamage(damage);
+            Destroy(gameObject);
+        }
+        else //Reflects off of object
+        {
+            if (bouncesRemaining > 0) //Bounces if bounces are remaining
+            {
+                Vector2 NormalVector = collision.contacts[0].normal; //Records normal vector for the possibility of more complex calculations later
+                Vector2 VelocityVector = rb.velocity;
+                rb.velocity = Vector2.Reflect(VelocityVector, NormalVector); 
+                bouncesRemaining--;
+            }
+            else //Deletes otherwise
+            {
+=======
             if (other.tag == "Player")
-                other.GetComponent<PlayerHealth>().TakeDamage(damage);
+                other.GetComponentsInChildren<PlayerHealth>()[0].TakeDamage(damage);
             else if (other.tag == "Enemy")
                 other.GetComponent<EnemyHealth>().TakeDamage(damage);
 
             if (other.tag != "Shield")
+>>>>>>> Stashed changes
                 Destroy(gameObject);
+            }
         }
     }
 
-    public void ReturnToSender(Transform shield)
+    public void ReturnToSender(Transform shield, Collision2D collision)
     {
         noCollide = "Player"; // projectile has been parried and now targets enemies instead of players
 
