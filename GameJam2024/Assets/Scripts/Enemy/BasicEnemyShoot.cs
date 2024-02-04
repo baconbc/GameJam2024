@@ -9,7 +9,7 @@ public class BasicEnemyShoot : MonoBehaviour
     [SerializeField] private GameObject projectile;
     [SerializeField] private float shootFrequency;
 
-    private float timer;
+    [SerializeField] private float timer; // what to start timer as, default to zero
     private Rigidbody2D rb;
 
     void Awake()
