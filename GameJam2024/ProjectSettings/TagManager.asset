@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Shield
+  - Projectile
+  - Health
   layers:
   - Default
   - TransparentFX
@@ -13,9 +16,9 @@ TagManager:
   - Water
   - UI
   - No Collision
-  - 
-  - 
-  - 
+  - Player Health
+  - Projectile
+  - Enemy
   - 
   - 
   - 
@@ -41,6 +44,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: World
+    uniqueID: 3867140845
     locked: 0
   - name: Player
     uniqueID: 3158630429
