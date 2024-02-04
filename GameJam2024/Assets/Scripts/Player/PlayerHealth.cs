@@ -23,4 +23,9 @@ public class PlayerHealth : IHealth
         Signal signal = GameSignals.UpdatePlayerHealth;
         signal.Dispatch();
     }
+
+    protected override bool ShouldTakeDamage(Projectile p)
+    {
+        return true;
+    }
 }

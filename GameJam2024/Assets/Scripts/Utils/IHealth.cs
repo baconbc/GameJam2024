@@ -6,10 +6,12 @@ public abstract class IHealth : MonoBehaviour
 {
     [SerializeField] private int maxHealth;
     private int health;
+    private StatusEffectManager sem;
 
     public virtual void Awake()
     {
         SetHealth(maxHealth);
+        sem = transform.parent.GetComponent<StatusEffectManager>();
     }
 
 
@@ -22,6 +24,23 @@ public abstract class IHealth : MonoBehaviour
     {
         health = value;
         OnSetHealth();
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("trigger");
+        if (collision.gameObject.tag == "Projectile")
+        {
+            Debug.Log("is projectile");
+            Projectile p = collision.gameObject.GetComponent<Projectile>();
+            if (ShouldTakeDamage(p))
+            {
+                Debug.Log("hit by bullet");
+                sem.AddEffect(p.effectType);
+                TakeDamage(p.GetDamage());
+                Destroy(p.gameObject);
+            }
+        }
     }
 
 
@@ -43,4 +62,6 @@ public abstract class IHealth : MonoBehaviour
     protected abstract void Die();
     // Called whenever health is set
     protected abstract void OnSetHealth();
+
+    protected abstract bool ShouldTakeDamage(Projectile p);
 }

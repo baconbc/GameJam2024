@@ -16,6 +16,7 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     public virtual void Start()
     {
+        Debug.Log("fired");
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.up * speed; //Old format - AddForce(transform.up * speed, ForceMode2D.Impulse);
     }
@@ -34,17 +35,6 @@ public class Projectile : MonoBehaviour
         {
             return;
         }
-        else if (other.tag == "Player") //Destroy Self and Damage Player
-        {
-            other.GetComponentInChildren<IHealth>().TakeDamage(damage);
-            other.GetComponent<StatusEffectManager>().AddEffect(effectType);
-            Destroy(gameObject);
-        }
-        //else if (other.tag == "Enemy") //Destroy self and Damage Enemy
-        //{
-        //    other.GetComponent<EnemyHealth>().TakeDamage(damage);
-        //    Destroy(gameObject);
-        //}
         else //Reflects off of object
         {
             if (bouncesRemaining > 0) //Bounces if bounces are remaining
@@ -56,11 +46,6 @@ public class Projectile : MonoBehaviour
             }
             else //Deletes otherwise
             {
-                if (other.tag == "Player")
-                    other.GetComponentInChildren<IHealth>().TakeDamage(damage);
-                //else if (other.tag == "Enemy")
-                //    other.GetComponent<EnemyHealth>().TakeDamage(damage);
-
                 if (other.tag != "Shield")
                     Destroy(gameObject);
             }
