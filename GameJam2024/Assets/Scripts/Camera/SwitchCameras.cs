@@ -21,6 +21,7 @@ public class SwitchCameras : MonoBehaviour
         if (other.gameObject.tag == ("CameraTrigger"))
         {
             SwitchToCamera(primaryCamera);
+            Debug.Log("Switching to primary camera");
         }
     }
 
