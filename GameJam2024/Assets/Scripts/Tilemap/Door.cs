@@ -4,23 +4,34 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Sprite doorOpen;
+    [SerializeField] private Sprite doorClosed;
+
+    private BoxCollider2D collider;
+    private bool isClosed = false;
+
+    private SpriteRenderer sr;
+
+    private void Awake()
     {
-        
+        sr = GetComponent<SpriteRenderer>();
+        doorOpen = sr.sprite;
+        collider = GetComponent<BoxCollider2D>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void CloseDoor()
     {
-        if(collision.GetComponent<GameObject>().tag == "Player") 
-        {
-            print("Hello");
-        }
+        sr.sprite = doorClosed;
+        collider.enabled = true;
+
+        isClosed = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OpenDoor()
     {
-        
+        sr.sprite = doorOpen;
+        collider.enabled = true;
+
+        isClosed = false;
     }
 }

@@ -5,32 +5,18 @@ using UnityEngine.Tilemaps;
 
 public class EnterRoom : MonoBehaviour
 {
+    internal Room RoomScript;
 
-    private GameObject fog;
-
-
-    void Awake()
+    private void Awake()
     {
-        fog = transform.parent.transform.GetChild(0).gameObject;
-        fog.SetActive(true);
+        RoomScript = transform.parent.transform.parent.gameObject.GetComponent<Room>(); ;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player") 
         {
-            if (fog.activeSelf)
-            {
-                fog.SetActive(false);
-                print("Set!");
-            }
-            else
-            {
-                print("Unset!");
-                fog.SetActive(true);
-            }
-            
-            
+            RoomScript.StartRoom();
         }
     }
 }
