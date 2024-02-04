@@ -34,7 +34,6 @@ public class Projectile : MonoBehaviour
         }
         else if (other.tag == "Player") //Destroy Self and Damage Player
         {
-            print(other);
             other.GetComponent<PlayerHealth>().TakeDamage(damage);
             Destroy(gameObject);
         }
@@ -67,8 +66,8 @@ public class Projectile : MonoBehaviour
 
     public virtual void ReturnToSender(Transform shield, Collision2D collision)
     {
-        noCollide = "Player"; // projectile has been parried and now targets enemies instead of players
-
+        noCollide = ""; // projectile has been parried and now targets enemies instead of players
+        
         float y = (transform.position.y - shield.position.y)/shield.GetComponent<BoxCollider2D>().bounds.size.y;
         float x = (transform.position.x - shield.position.x)/shield.GetComponent<BoxCollider2D>().bounds.size.x;
         Vector2 dir = new Vector2(x, y).normalized;
