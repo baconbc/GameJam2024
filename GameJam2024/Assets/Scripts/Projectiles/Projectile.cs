@@ -37,12 +37,14 @@ public class Projectile : MonoBehaviour
         else if (other.tag == "Player") //Destroy Self and Damage Player
         {
             other.GetComponentInChildren<IHealth>().TakeDamage(damage);
+            AudioManager.Instance.Play("PlayerHurt");
             other.GetComponent<StatusEffectManager>().AddEffect(effectType);
             Destroy(gameObject);
         }
         //else if (other.tag == "Enemy") //Destroy self and Damage Enemy
         //{
         //    other.GetComponent<EnemyHealth>().TakeDamage(damage);
+        //    AudioManager.Instance.Play("EnemyDeath");
         //    Destroy(gameObject);
         //}
         else //Reflects off of object
