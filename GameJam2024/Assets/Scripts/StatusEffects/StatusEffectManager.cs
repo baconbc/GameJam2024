@@ -4,54 +4,48 @@ using UnityEngine;
 
 public class StatusEffectManager : MonoBehaviour
 {
-    private List<IStatusEffect> effects = new List<IStatusEffect>();
-
+    private IStatusEffect currentEffect;
 
     public void AddEffect(StatusEffectType e)
     {
-        if (e == StatusEffectType.Burn)
+        if (currentEffect == null)
         {
-            Debug.Log("adding burn");
-            effects.Add(new Burn(gameObject));
-        } 
-        else if (e == StatusEffectType.Freeze)
+            if (e == StatusEffectType.Burn)
+            {
+                currentEffect = new Burn(gameObject);
+            } 
+            if (e == StatusEffectType.Freeze)
+            {
+                currentEffect = new Freeze(gameObject);
+            }
+        }
+        else if (e == currentEffect.Type())
         {
-            effects.Add(new Freeze(gameObject));
+            currentEffect.Reset();
+        }
+        else
+        {
+            RemoveStatusEffect();
         }
     }
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        for (int i = effects.Count - 1; i >= 0; i--)
+        if (currentEffect != null)
         {
-            IStatusEffect e = effects[i];
-            e.Apply(Time.fixedDeltaTime);
-            if (e.IsFinished())
+            currentEffect.Apply(Time.fixedDeltaTime);
+            if (currentEffect.IsFinished())
             {
-                effects.RemoveAt(i);
-                // Only remove status effect if it's last of it's type so effects can stack
-                if (IsLastEffectOfType(e))
-                {
-                    e.Remove();
-                }
+                RemoveStatusEffect();
             }
         }
     }
 
-    private bool IsLastEffectOfType(IStatusEffect e)
+    private void RemoveStatusEffect()
     {
-        foreach (IStatusEffect effect in effects)
-        {
-            if (effect.Type() == e.Type()) { return false; }
-        }
-        return true;
+        currentEffect.Remove();
+        currentEffect = null;
     }
 }

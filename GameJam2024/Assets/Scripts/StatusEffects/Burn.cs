@@ -29,6 +29,11 @@ public class Burn : IStatusEffect
         return StatusEffectType.Burn;
     }
 
+    public void Reset()
+    {
+        timer = 0;
+    }
+
     public void Apply(float elapsedTime)
     {
         timer += elapsedTime;
@@ -54,20 +59,5 @@ public class Burn : IStatusEffect
     public bool IsFinished()
     {
         return finished;
-    }
-
-
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

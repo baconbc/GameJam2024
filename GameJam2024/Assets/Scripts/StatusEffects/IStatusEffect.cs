@@ -11,5 +11,7 @@ public interface IStatusEffect
 
     void Remove();
 
+    void Reset();
+
     Boolean IsFinished();
 }
