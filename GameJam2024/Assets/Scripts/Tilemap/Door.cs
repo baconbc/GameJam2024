@@ -30,7 +30,7 @@ public class Door : MonoBehaviour
     public void OpenDoor()
     {
         sr.sprite = doorOpen;
-        collider.enabled = true;
+        collider.enabled = false;
 
         isClosed = false;
     }
