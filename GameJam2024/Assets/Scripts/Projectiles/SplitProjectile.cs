@@ -26,6 +26,7 @@ public class SplitProjectile : Projectile
         {
            
             float rotation = (Mathf.Atan2(-rb.velocity.y, -rb.velocity.x) * Mathf.Rad2Deg) + 90;  // Add 90 degrees, since bullet starts facing up
+            rotation -= (numSplitProjectiles - 1) * splitAngleDiff / 2;
             for (int i = 0; i < numSplitProjectiles; i++)
             {
                 Instantiate(splitProjectile, transform.position, Quaternion.Euler(0, 0, rotation + i*splitAngleDiff));
