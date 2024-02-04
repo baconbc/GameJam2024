@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyHealth : IHealth
 {
-    [SerializeField] private List<GameObject> bloodPatterns;
+    [SerializeField] private GameObject bloodSplatter;
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -23,8 +23,7 @@ public class EnemyHealth : IHealth
 
     protected override void Die()
     {
-        int bloodIndex = Random.Range(0, bloodPatterns.Count);
-        Instantiate(bloodPatterns[bloodIndex], transform.position, Quaternion.identity);
+        Instantiate(bloodSplatter, transform.position, Quaternion.identity);
         Destroy(transform.parent.gameObject);
     }
 
