@@ -21,12 +21,9 @@ public class MaintainDistanceMovement : MonoBehaviour
     {
         Vector3 fromPlayerDirection = transform.position - (Vector3)player.Position;
         Vector3 pointFromPlayer = (Vector3)player.Position + fromPlayerDirection.normalized * distance;
-        Debug.Log($"pointFromPlayer: {pointFromPlayer}");
         Vector3 directionToPoint = pointFromPlayer - transform.position;
         float distanceToPoint = Vector3.Distance(pointFromPlayer, transform.position);
-        Debug.Log(distanceToPoint);
         float speed = Mathf.Min(distanceToPoint, maxSpeed);
-        Debug.Log(speed);
         rb.velocity = directionToPoint.normalized * Mathf.Min(distanceToPoint, maxSpeed);
     }
 }
