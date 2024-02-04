@@ -34,6 +34,7 @@ public class Projectile : MonoBehaviour
         }
         else if (other.tag == "Player") //Destroy Self and Damage Player
         {
+<<<<<<< Updated upstream
             other.GetComponent<PlayerHealth>().TakeDamage(damage);
             Destroy(gameObject);
         }
@@ -53,12 +54,20 @@ public class Projectile : MonoBehaviour
             }
             else //Deletes otherwise
             {
+=======
+            if (other.tag == "Player")
+                other.GetComponentsInChildren<PlayerHealth>()[0].TakeDamage(damage);
+            else if (other.tag == "Enemy")
+                other.GetComponent<EnemyHealth>().TakeDamage(damage);
+
+            if (other.tag != "Shield")
+>>>>>>> Stashed changes
                 Destroy(gameObject);
             }
         }
     }
 
-    public void ReturnToSender(Transform shield)
+    public void ReturnToSender(Transform shield, Collision2D collision)
     {
         noCollide = "Player"; // projectile has been parried and now targets enemies instead of players
 
