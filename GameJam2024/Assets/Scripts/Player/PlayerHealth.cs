@@ -11,6 +11,9 @@ public class PlayerHealth : IHealth
         print("you died! restarting the level");
         pr.GameObject.transform.position = pr.SpawnPoint;
 
+        Signal signal = GameSignals.PlayerDeath;
+        signal.Dispatch();
+
         ResetHealth();
     }
 

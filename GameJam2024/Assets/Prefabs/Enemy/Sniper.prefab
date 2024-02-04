@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3256803556330873649, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 353207519, guid: e21a4e93fdf9f794f96ba8323da226f9, type: 3}
     - target: {fileID: 4150176480869803975, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.51
@@ -59,6 +63,14 @@ PrefabInstance:
     - target: {fileID: 4371416567293865656, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
       propertyPath: shootFrequency
       value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4574691942262823261, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4574691942262823261, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5879519567224801024, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
       propertyPath: maxHealth
