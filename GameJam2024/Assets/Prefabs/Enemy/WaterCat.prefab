@@ -71,14 +71,14 @@ PrefabInstance:
     - target: {fileID: 4371416567293865656, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
       propertyPath: projectile
       value: 
-      objectReference: {fileID: 483974225801410166, guid: 7d167d1642cb5f341ab53d0c6b5257da, type: 3}
+      objectReference: {fileID: 847880466701243063, guid: 7bdb2a631094efe48b8cb0489578b9db, type: 3}
     - target: {fileID: 4371416567293865656, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
       propertyPath: shootFrequency
       value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6536080735805865685, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
       propertyPath: m_Name
-      value: Enemy Variant
+      value: WaterCat
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4574691942262823261, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
