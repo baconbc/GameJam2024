@@ -6,7 +6,7 @@ public class DEBUG_Noclip : MonoBehaviour
 {
     [SerializeField] private bool Noclip = false;
     private BoxCollider2D collider;
-
+    [SerializeField] private int NoclipSpeed = 10;
     internal PlayerMovement pm;
 
     private void Awake()
@@ -26,7 +26,7 @@ public class DEBUG_Noclip : MonoBehaviour
         if(Noclip)
         {
             collider.enabled = false;
-            pm.setSpeed(10);
+            pm.setSpeed(NoclipSpeed);
         }
         else
         {
