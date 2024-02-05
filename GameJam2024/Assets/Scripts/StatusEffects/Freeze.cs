@@ -19,7 +19,10 @@ public class Freeze : IStatusEffect
         sr = obj.GetComponent<SpriteRenderer>();
 
         rb.velocity = Vector3.zero;
-        movement.enabled = false;
+        if (movement != null)
+        {
+            movement.enabled = false;
+        }
         sr.color = new Color(0.1f, 0.1f, 0.5f);
     }
 
