@@ -34,6 +34,11 @@ public class PlayerMovement : IMovement
         }
     }
 
+    public void setSpeed(int speed)
+    {
+        this.speed = speed;
+    }
+
     private void OnToggleInventory(InputValue value)
     {
         Debug.Log("toggle inv");
