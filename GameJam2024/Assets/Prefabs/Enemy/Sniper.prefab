@@ -12,6 +12,26 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2497466554054572383, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
+      propertyPath: m_Size.x
+      value: 0.73303413
+      objectReference: {fileID: 0}
+    - target: {fileID: 2497466554054572383, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
+      propertyPath: m_Size.y
+      value: 0.85968375
+      objectReference: {fileID: 0}
+    - target: {fileID: 2497466554054572383, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.012551308
+      objectReference: {fileID: 0}
+    - target: {fileID: 2497466554054572383, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.09782761
+      objectReference: {fileID: 0}
+    - target: {fileID: 2497466554054572383, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
+      propertyPath: m_Direction
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3256803556330873649, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -63,6 +83,14 @@ PrefabInstance:
     - target: {fileID: 4371416567293865656, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
       propertyPath: shootFrequency
       value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4574691942262823261, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
+      propertyPath: m_Size.x
+      value: 0.3327465
+      objectReference: {fileID: 0}
+    - target: {fileID: 4574691942262823261, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.014772415
       objectReference: {fileID: 0}
     - target: {fileID: 4574691942262823261, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x

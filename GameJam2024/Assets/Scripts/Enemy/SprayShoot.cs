@@ -13,6 +13,7 @@ public class SprayShoot : MonoBehaviour
 
     private float timer;
     private Rigidbody2D rb;
+    private Collider2D col;
     private bool isShooting;
     private int bulletsFired;
     private float sprayAngleDiff;
@@ -21,6 +22,7 @@ public class SprayShoot : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        col = GetComponent<Collider2D>();
         sprayAngleDiff = (sprayDegrees * 2) / (numProjectiles - 1);
     }
 
@@ -36,16 +38,19 @@ public class SprayShoot : MonoBehaviour
 
         if (isShooting && timer > sprayFrequency)
         {
+            Vector3 direction;
             if (bulletsFired == 0)
             {
-                Vector3 direction = (Vector3)player.Position - transform.position;
+                direction = (Vector3)player.Position - col.transform.position;
                 float rotation = (Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg) + 90;  // Add 90 degrees, since bullet starts facing up
                 rotation += sprayDegrees;
                 firstSprayAngle = rotation;
             }
 
             float projectileRotation = firstSprayAngle - (bulletsFired * sprayAngleDiff);
-            Instantiate(projectile, rb.position, Quaternion.Euler(0, 0, projectileRotation));
+            Vector3 playerDirection = (Vector3)player.Position - col.transform.position;
+            Vector3 projectileSpawn = col.transform.position + playerDirection.normalized * 0.75f;
+            Instantiate(projectile, projectileSpawn, Quaternion.Euler(0, 0, projectileRotation));
             bulletsFired += 1;
             timer = 0;
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -9,27 +10,35 @@ public class Projectile : MonoBehaviour
     [SerializeField] protected int bouncesRemaining;
     [SerializeField] public StatusEffectType effectType;
 
-    
+
+    protected float timer;
     public Rigidbody2D rb;
+    public Collider2D col;
     public string noCollide = "Enemy"; //at the start, projectiles cannot hit other enemies
 
     // Start is called before the first frame update
     public virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        col = GetComponent<Collider2D>();
+
         rb.velocity = transform.up * speed; //Old format - AddForce(transform.up * speed, ForceMode2D.Impulse);
+        //col.enabled = false;
     }
 
     // Update is called once per frame
-    public virtual void Update()
+    public virtual void FixedUpdate()
     {
-        
+        timer += Time.fixedDeltaTime;
+        //if (!col.enabled && timer > 0.1 )
+        //{
+        //    col.enabled = true;
+        //}
     }
 
     public virtual void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject other = collision.gameObject;
-        Debug.Log(other.tag);
 
         if (other.tag == noCollide || other.tag == "Projectile" || other.tag == "Shield")
         {

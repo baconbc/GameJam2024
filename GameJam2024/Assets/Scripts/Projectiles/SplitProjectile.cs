@@ -9,8 +9,6 @@ public class SplitProjectile : Projectile
     [SerializeField] int numSplitProjectiles;
     [SerializeField] float splitAngleDiff; // Degrees between each split projectile;
 
-    private float timer;
-
     //// Start is called before the first frame update
     //void Start()
     //{
@@ -18,10 +16,9 @@ public class SplitProjectile : Projectile
     //}
 
     // Update is called once per frame
-    void FixedUpdate()
+    public override void FixedUpdate()
     {
-        timer += Time.fixedDeltaTime;
-
+        base.FixedUpdate();
         if (timer > timeToSplit)
         {
            

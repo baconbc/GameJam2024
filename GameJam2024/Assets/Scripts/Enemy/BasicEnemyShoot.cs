@@ -10,13 +10,13 @@ public class BasicEnemyShoot : MonoBehaviour
     [SerializeField] private float shootFrequency;
 
     [SerializeField] private float timer; // what to start timer as, default to zero
-    //private Collider2D cd;
+    private Collider2D cd;
     private Rigidbody2D rb;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        //cd = GetComponent<Collider2D>();
+        cd = GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -34,10 +34,10 @@ public class BasicEnemyShoot : MonoBehaviour
 
     private void Shoot()
     {
-        Vector2 direction = (Vector3)pr.Position - transform.position;
-        float rotation = (Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg) + 90;  // Add 90 degrees, since bullet starts facing up
-        Vector3 projectileStart = rb.position + 0.1f*direction.normalized;
-        Instantiate(projectile, projectileStart, Quaternion.Euler(0, 0, rotation));
+        Vector3 playerDirection = (Vector3)pr.Position - cd.transform.position;
+        float rotation = (Mathf.Atan2(-playerDirection.y, -playerDirection.x) * Mathf.Rad2Deg) + 90;  // Add 90 degrees, since bullet starts facing up
+        Vector3 projectileSpawn = cd.transform.position + playerDirection.normalized * 0.75f;
+        Instantiate(projectile, projectileSpawn, Quaternion.Euler(0, 0, rotation));
     }
 
 

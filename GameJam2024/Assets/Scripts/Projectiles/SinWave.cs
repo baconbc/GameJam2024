@@ -16,8 +16,9 @@ public class SinWave : Projectile
         MainDirection = rb.velocity.normalized;
     }
     
-    void FixedUpdate() //Overall idea is for t to traverse 2pi radians every 3 seconds
+    public override void FixedUpdate() //Overall idea is for t to traverse 2pi radians every 3 seconds
     {
+        base.FixedUpdate();
         Vector2 PerpendicularDirection = new Vector2(-MainDirection.y, MainDirection.x);
         Vector2 Variation = PerpendicularDirection * Mathf.Sin(Time.time * TimeScale) * Amplitude; //Creates a perpendicular vector that variates around the primary direction
         rb.velocity = MainDirection * speed + Variation;

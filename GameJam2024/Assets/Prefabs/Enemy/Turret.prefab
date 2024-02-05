@@ -12,6 +12,26 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 2497466554054572383, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
+      propertyPath: m_Size.x
+      value: 0.67272544
+      objectReference: {fileID: 0}
+    - target: {fileID: 2497466554054572383, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
+      propertyPath: m_Size.y
+      value: 1.0647348
+      objectReference: {fileID: 0}
+    - target: {fileID: 2497466554054572383, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.09095359
+      objectReference: {fileID: 0}
+    - target: {fileID: 2497466554054572383, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.052595437
+      objectReference: {fileID: 0}
+    - target: {fileID: 2497466554054572383, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
+      propertyPath: m_Direction
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3256803556330873649, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -55,6 +75,14 @@ PrefabInstance:
     - target: {fileID: 4150176480869803975, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4574691942262823261, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
+      propertyPath: m_Size.x
+      value: 0.4533651
+      objectReference: {fileID: 0}
+    - target: {fileID: 4574691942262823261, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.16554499
       objectReference: {fileID: 0}
     - target: {fileID: 4574691942262823261, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
