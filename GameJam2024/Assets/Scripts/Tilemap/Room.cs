@@ -21,6 +21,15 @@ public class Room : MonoBehaviour
     private bool RoomActive = false;
     private bool CompletedRoom = false;
 
+    [SerializeField] bool isFinalRoom = false;
+    [SerializeField] bool isWaterRoom = false;
+    [SerializeField] bool isFireRoom = false;
+    private bool water = false;
+    private bool fire = false;
+    private bool earth = false;
+    private bool wind = false;
+    private bool openedfinal = false;
+
     void Awake()
     {
         fog = transform.GetChild(0).gameObject;
@@ -32,11 +41,25 @@ public class Room : MonoBehaviour
         doorSound = GetComponent<AudioSource>();
 
         closeSound = doorSound.clip;
+
+        GameSignals.Fire.AddListener(Fire);
+        GameSignals.Earth.AddListener(Earth);
+        GameSignals.Water.AddListener(Water);
+        GameSignals.Wind.AddListener(Wind);
+
+        if (isFinalRoom)
+        {
+            CloseDoors();
+        }
     }
 
     void OnDestroy()
     {
         GameSignals.PlayerDeath.RemoveListener(PlayerDeath);
+        GameSignals.Fire.RemoveListener(Fire);
+        GameSignals.Earth.RemoveListener(Earth);
+        GameSignals.Water.RemoveListener(Water);
+        GameSignals.Wind.RemoveListener(Wind);
     }
 
     private void PlayerDeath(ISignalParameters parameters)
@@ -74,6 +97,12 @@ public class Room : MonoBehaviour
             BeatRoom();
             print("beat!");
         }
+
+        if (isFinalRoom && fire && water && !openedfinal)
+        {
+            openedfinal = true;
+            OpenDoors();
+        }
     }
     public void StartRoom()
     {
@@ -89,6 +118,20 @@ public class Room : MonoBehaviour
     {
         OpenDoors();
         CompletedRoom = true;
+        if (isWaterRoom)
+        {
+            Signal signal = GameSignals.Water;
+            signal.Dispatch();
+        }
+        else if (isFireRoom)
+        {
+            Signal signal = GameSignals.Fire;
+            signal.Dispatch();
+        }
+        else if (isFinalRoom)
+        {
+            Debug.Log("YOU WIN!!");
+        }
     }
 
     public void UnloadRoom()
@@ -157,5 +200,24 @@ public class Room : MonoBehaviour
     public void EnableFog()
     {
         fog.SetActive(true);
+    }
+
+    private void Wind(ISignalParameters parameters)
+    {
+        wind = true;
+    }
+    private void Water(ISignalParameters parameters)
+    {
+        water = true;
+    }
+
+    private void Fire(ISignalParameters parameters)
+    {
+        fire = true;
+    }
+
+    private void Earth(ISignalParameters parameters)
+    {
+        earth = true;
     }
 }
