@@ -33,6 +33,7 @@ public class Brazier : MonoBehaviour
         {
             sr.sprite = lit;
             islit = true;
+            print("You hear the sound of wind");
         }
     }
     private void Water(ISignalParameters parameters)
@@ -41,6 +42,7 @@ public class Brazier : MonoBehaviour
         {
             sr.sprite = lit;
             islit = true;
+            print("You hear the sound of water");
         }
     }
 
@@ -50,6 +52,7 @@ public class Brazier : MonoBehaviour
         {
             sr.sprite = lit;
             islit = true;
+            print("You hear the sound of fire");
         }
     }
 
@@ -59,6 +62,7 @@ public class Brazier : MonoBehaviour
         {
             sr.sprite = lit;
             islit = true;
+            print("You hear the sound of earth");
         }
     }
 }

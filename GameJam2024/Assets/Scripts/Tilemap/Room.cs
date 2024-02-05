@@ -43,6 +43,11 @@ public class Room : MonoBehaviour
         doorSound = GetComponent<AudioSource>();
 
         closeSound = doorSound.clip;
+
+        GameSignals.Fire.AddListener(Fire);
+        GameSignals.Earth.AddListener(Earth);
+        GameSignals.Water.AddListener(Water);
+        GameSignals.Wind.AddListener(Wind);
     }
 
     private void Start()
@@ -56,6 +61,10 @@ public class Room : MonoBehaviour
     void OnDestroy()
     {
         GameSignals.PlayerDeath.RemoveListener(PlayerDeath);
+        GameSignals.Fire.RemoveListener(Fire);
+        GameSignals.Earth.RemoveListener(Earth);
+        GameSignals.Water.RemoveListener(Water);
+        GameSignals.Wind.RemoveListener(Wind);
     }
 
     private void PlayerDeath(ISignalParameters parameters)
@@ -99,7 +108,7 @@ public class Room : MonoBehaviour
         {
             openedfinal = true;
             OpenDoors();
-            print("unlocked final");
+            print("A mysterious door has unlocked...");
         }
     }
     public void StartRoom()
@@ -120,25 +129,21 @@ public class Room : MonoBehaviour
         {
             Signal signal = GameSignals.Water;
             signal.Dispatch();
-            water = true;
         }
         else if (isFireRoom)
         {
             Signal signal = GameSignals.Fire;
             signal.Dispatch();
-            fire = true;
         }
         if (isEarthRoom)
         {
             Signal signal = GameSignals.Earth;
             signal.Dispatch();
-            earth = true;
         }
         else if (isWindRoom)
         {
             Signal signal = GameSignals.Wind;
             signal.Dispatch();
-            wind = true;
         }
         else if (isFinalRoom)
         {
@@ -212,5 +217,25 @@ public class Room : MonoBehaviour
     public void EnableFog()
     {
         fog.SetActive(true);
+    }
+
+    private void Water(ISignalParameters parameters)
+    {
+        water = true;
+    }
+
+    private void Earth(ISignalParameters parameters)
+    {
+        earth = true;
+    }
+
+    private void Wind(ISignalParameters parameters)
+    {
+        wind = true;
+    }
+
+    private void Fire(ISignalParameters parameters)
+    {
+        fire = true;
     }
 }
