@@ -24,6 +24,8 @@ public class Room : MonoBehaviour
     [SerializeField] bool isFinalRoom = false;
     [SerializeField] bool isWaterRoom = false;
     [SerializeField] bool isFireRoom = false;
+    [SerializeField] bool isWindRoom = false;
+    [SerializeField] bool isEarthRoom = false;
     private bool water = false;
     private bool fire = false;
     private bool earth = false;
@@ -42,11 +44,6 @@ public class Room : MonoBehaviour
 
         closeSound = doorSound.clip;
 
-        GameSignals.Fire.AddListener(Fire);
-        GameSignals.Earth.AddListener(Earth);
-        GameSignals.Water.AddListener(Water);
-        GameSignals.Wind.AddListener(Wind);
-
         if (isFinalRoom)
         {
             CloseDoors();
@@ -56,10 +53,6 @@ public class Room : MonoBehaviour
     void OnDestroy()
     {
         GameSignals.PlayerDeath.RemoveListener(PlayerDeath);
-        GameSignals.Fire.RemoveListener(Fire);
-        GameSignals.Earth.RemoveListener(Earth);
-        GameSignals.Water.RemoveListener(Water);
-        GameSignals.Wind.RemoveListener(Wind);
     }
 
     private void PlayerDeath(ISignalParameters parameters)
@@ -98,6 +91,7 @@ public class Room : MonoBehaviour
             print("beat!");
         }
 
+        //if (isFinalRoom && fire && water && earth && wind && !openedfinal)
         if (isFinalRoom && fire && water && !openedfinal)
         {
             openedfinal = true;
@@ -122,11 +116,25 @@ public class Room : MonoBehaviour
         {
             Signal signal = GameSignals.Water;
             signal.Dispatch();
+            water = true;
         }
         else if (isFireRoom)
         {
             Signal signal = GameSignals.Fire;
             signal.Dispatch();
+            fire = true;
+        }
+        if (isEarthRoom)
+        {
+            Signal signal = GameSignals.Earth;
+            signal.Dispatch();
+            earth = true;
+        }
+        else if (isWindRoom)
+        {
+            Signal signal = GameSignals.Wind;
+            signal.Dispatch();
+            wind = true;
         }
         else if (isFinalRoom)
         {
@@ -200,24 +208,5 @@ public class Room : MonoBehaviour
     public void EnableFog()
     {
         fog.SetActive(true);
-    }
-
-    private void Wind(ISignalParameters parameters)
-    {
-        wind = true;
-    }
-    private void Water(ISignalParameters parameters)
-    {
-        water = true;
-    }
-
-    private void Fire(ISignalParameters parameters)
-    {
-        fire = true;
-    }
-
-    private void Earth(ISignalParameters parameters)
-    {
-        earth = true;
     }
 }
