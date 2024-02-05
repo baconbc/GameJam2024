@@ -15,6 +15,7 @@ public class BloodSplatter : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        AudioManager.Instance.Play("EnemyDeath");
         sr = GetComponent<SpriteRenderer>();
         int bloodIndex = Random.Range(0, bloodPatterns.Count);
         sr.sprite = bloodPatterns[bloodIndex];
