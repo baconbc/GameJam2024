@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &1859392107516100002
+--- !u!1001 &1413307786540996211
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,23 +10,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 552362932122398001, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
       propertyPath: m_Name
-      value: BouncyBall
+      value: Fireball
+      objectReference: {fileID: 0}
+    - target: {fileID: 3498543995336930879, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
+      propertyPath: m_FlipY
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3498543995336930879, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-    - target: {fileID: 4598972932175395549, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
-      propertyPath: speed
-      value: 5
-      objectReference: {fileID: 0}
+      objectReference: {fileID: -6258125529263444339, guid: 692481d19f98f48e4869c009b03aa9e2, type: 3}
     - target: {fileID: 4598972932175395549, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
       propertyPath: damage
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4598972932175395549, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
-      propertyPath: bouncesRemaining
-      value: 1000
+      propertyPath: effectType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565129707833972661, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565129707833972661, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5565129707833972661, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -68,27 +76,80 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6805480511739547507, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
+      propertyPath: m_Size.x
+      value: 0.7606034
+      objectReference: {fileID: 0}
+    - target: {fileID: 6805480511739547507, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
+      propertyPath: m_Size.y
+      value: 1.0689238
+      objectReference: {fileID: 0}
+    - target: {fileID: 6805480511739547507, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0038206577
+      objectReference: {fileID: 0}
+    - target: {fileID: 6805480511739547507, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.5293997
+      objectReference: {fileID: 0}
+    - target: {fileID: 6805480511739547507, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6805480511739547507, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6805480511739547507, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.3125
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6805480511739547507, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
+    - {fileID: 7869699690127879514, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 552362932122398001, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2576378728880019055}
+      addedObject: {fileID: -2846190498641945894}
+    - targetCorrespondingSourceObject: {fileID: 552362932122398001, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 350309591711090214}
   m_SourcePrefab: {fileID: 100100000, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
---- !u!1 &2190860945999712403 stripped
+--- !u!1 &1456757080096406338 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 552362932122398001, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
-  m_PrefabInstance: {fileID: 1859392107516100002}
+  m_PrefabInstance: {fileID: 1413307786540996211}
   m_PrefabAsset: {fileID: 0}
---- !u!70 &2576378728880019055
+--- !u!95 &-2846190498641945894
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456757080096406338}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 381251414053494064, guid: 692481d19f98f48e4869c009b03aa9e2, type: 3}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!70 &350309591711090214
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2190860945999712403}
+  m_GameObject: {fileID: 1456757080096406338}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -114,6 +175,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
+  m_Offset: {x: 0, y: -0.6525564}
+  m_Size: {x: 0.7869358, y: 1.3198872}
   m_Direction: 0
