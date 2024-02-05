@@ -45,7 +45,10 @@ public class StatusEffectManager : MonoBehaviour
 
     public void RemoveStatusEffect()
     {
-        currentEffect.Remove();
-        currentEffect = null;
+        if (currentEffect != null)
+        {
+            currentEffect.Remove();
+            currentEffect = null;
+        }
     }
 }

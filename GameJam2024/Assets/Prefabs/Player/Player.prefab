@@ -356,7 +356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pr: {fileID: 11400000, guid: a9e6686043369a14ca4532bb5bdbab96, type: 2}
   radius: 1
-  parryCooldown: 1
+  parryCooldown: 0.5
   maxParryTime: 0.3
   shieldHitAudio: {fileID: 0}
   shieldReflectAudio: {fileID: 0}
