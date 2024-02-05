@@ -16,7 +16,6 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     public virtual void Start()
     {
-        Debug.Log("fired");
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.up * speed; //Old format - AddForce(transform.up * speed, ForceMode2D.Impulse);
     }
@@ -54,16 +53,26 @@ public class Projectile : MonoBehaviour
 
     public virtual void ReturnToSender(Transform shield, Collision2D collision)
     {
+        Debug.Log("returning to sender");
         noCollide = ""; // projectile has been parried and now targets enemies instead of players
-        
-        float y = (transform.position.y - shield.position.y)/shield.GetComponent<BoxCollider2D>().bounds.size.y;
-        float x = (transform.position.x - shield.position.x)/shield.GetComponent<BoxCollider2D>().bounds.size.x;
-        Vector2 dir = new Vector2(x, y).normalized;
 
+        Debug.Log(collision.contacts[0].normal);
+        Debug.Log(collision.collider.transform.position);
+        Debug.Log(shield.position);
+        //float y = (collision.contacts[0].point.y - shield.position.y)/shield.GetComponent<BoxCollider2D>().bounds.size.y;
+        //float x = (collision.contacts[0].point.x - shield.position.x)/shield.GetComponent<BoxCollider2D>().bounds.size.x;
+        //Vector2 dir = new Vector2(x, y).normalized;
+        Vector2 dir = Vector2.Reflect(rb.velocity, collision.contacts[0].normal).normalized;
+
+      
         float rotation = (Mathf.Atan2(-dir.y, -dir.x) * Mathf.Rad2Deg) + 90;
+
+        Debug.Log(rb.rotation);
+        Debug.Log(rotation);
         rb.rotation = rotation;
 
         rb.velocity = dir * speed;
+        rb.position += dir * 0.1f;
     }
 
 

@@ -38,15 +38,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5565129707833972661, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.24
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5565129707833972661, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.88
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5565129707833972661, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.036837485
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5565129707833972661, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -175,6 +175,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.6525564}
-  m_Size: {x: 0.7869358, y: 1.3198872}
+  m_Offset: {x: 0.0064232945, y: -0.36351085}
+  m_Size: {x: 0.85116816, y: 1.2299621}
   m_Direction: 0

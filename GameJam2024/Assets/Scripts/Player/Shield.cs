@@ -116,6 +116,8 @@ public class Shield : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject other = collision.gameObject;
+        Debug.Log("shield hit");
+        Debug.Log(other.name);
 
         if (other.tag == "Projectile")
         {
@@ -138,7 +140,7 @@ public class Shield : MonoBehaviour
             Time.timeScale = 0.2f;
             slowdownCheck = true;
         }*/
-
+        Debug.Log("Parrying");
         collision.gameObject.GetComponent<Projectile>().ReturnToSender(transform, collision);
         AudioManager.Instance.Play("ShieldReflect");
     }

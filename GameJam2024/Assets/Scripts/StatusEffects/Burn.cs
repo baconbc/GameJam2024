@@ -40,7 +40,6 @@ public class Burn : IStatusEffect
 
         if (timer >= tickSpeed)
         {
-            Debug.Log("taking damage");
             healthComponent.TakeDamage(damagePerTick);
             numTicks -= 1;
             timer -= tickSpeed;
