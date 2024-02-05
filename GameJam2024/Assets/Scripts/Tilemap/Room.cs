@@ -43,7 +43,10 @@ public class Room : MonoBehaviour
         doorSound = GetComponent<AudioSource>();
 
         closeSound = doorSound.clip;
+    }
 
+    private void Start()
+    {
         if (isFinalRoom)
         {
             CloseDoors();
@@ -91,11 +94,12 @@ public class Room : MonoBehaviour
             print("beat!");
         }
 
-        //if (isFinalRoom && fire && water && earth && wind && !openedfinal)
+        //if (isFinalRoom && fire && water && earth && wind && !openedfinal) // UNCOMMENT THIS WHEN ALL 4 ROOMS WORK
         if (isFinalRoom && fire && water && !openedfinal)
         {
             openedfinal = true;
             OpenDoors();
+            print("unlocked final");
         }
     }
     public void StartRoom()
