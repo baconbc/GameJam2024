@@ -6,12 +6,12 @@ using UnityEngine.UI;
 public class HealthUI : MonoBehaviour
 {
     [SerializeField] private PlayerObject pr;
-    private TMPro.TextMeshProUGUI tmpro;
+    Image fill;
 
     void Awake()
     {
         GameSignals.UpdatePlayerHealth.AddListener(UpdateHealth);
-        tmpro = GetComponent<TMPro.TextMeshProUGUI>();
+        fill = transform.GetChild(1).GetComponent<Image>();
     }
 
     private void Start()
@@ -31,6 +31,7 @@ public class HealthUI : MonoBehaviour
 
     private void UpdateHealth()
     {
-        tmpro.text = pr.Health.ToString();
+        float health = (float)pr.Health / (float)pr.MaxHealth;
+        fill.fillAmount = health;
     }
 }

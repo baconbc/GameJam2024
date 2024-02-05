@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4451845994199171232
+--- !u!1001 &5590157160770028272
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -8,33 +8,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2497466554054572383, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
-      propertyPath: m_Size.x
-      value: 1.0120572
+    - target: {fileID: 754640946912365021, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
+      propertyPath: maxHealth
+      value: 40
       objectReference: {fileID: 0}
-    - target: {fileID: 2497466554054572383, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
-      propertyPath: m_Size.y
-      value: 0.7351948
-      objectReference: {fileID: 0}
-    - target: {fileID: 2497466554054572383, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.03344825
-      objectReference: {fileID: 0}
-    - target: {fileID: 2497466554054572383, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.078169055
-      objectReference: {fileID: 0}
-    - target: {fileID: 3256803556330873649, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c6ed307f9346ff34db77fc1c0b0fa7f0, type: 3}
     - target: {fileID: 4150176480869803975, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.36
+      value: 1.09
       objectReference: {fileID: 0}
     - target: {fileID: 4150176480869803975, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.74
+      value: 5.65
       objectReference: {fileID: 0}
     - target: {fileID: 4150176480869803975, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -71,34 +55,14 @@ PrefabInstance:
     - target: {fileID: 4371416567293865656, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
       propertyPath: projectile
       value: 
-      objectReference: {fileID: 9219710651129611860, guid: e37b28a8594df674ba444ce44f9cda2d, type: 3}
+      objectReference: {fileID: 396637727773554240, guid: 00a35d6b6b749f2429bb96e8acc22439, type: 3}
     - target: {fileID: 4371416567293865656, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
       propertyPath: shootFrequency
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4574691942262823261, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
-      propertyPath: m_Size.x
-      value: 0.56012154
-      objectReference: {fileID: 0}
-    - target: {fileID: 4574691942262823261, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
-      propertyPath: m_Size.y
-      value: 0.19944774
-      objectReference: {fileID: 0}
-    - target: {fileID: 4574691942262823261, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.09392929
-      objectReference: {fileID: 0}
-    - target: {fileID: 4574691942262823261, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.3407947
-      objectReference: {fileID: 0}
-    - target: {fileID: 4574691942262823261, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6536080735805865685, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
       propertyPath: m_Name
-      value: EarthCat
+      value: BoulderBrute
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -106,25 +70,24 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6536080735805865685, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6949259099617801135}
+      addedObject: {fileID: 6721932163651938122}
   m_SourcePrefab: {fileID: 100100000, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
---- !u!1 &7457099605592227445 stripped
+--- !u!1 &1666587624992062501 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6536080735805865685, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
-  m_PrefabInstance: {fileID: 4451845994199171232}
+  m_PrefabInstance: {fileID: 5590157160770028272}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6949259099617801135
+--- !u!114 &6721932163651938122
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7457099605592227445}
+  m_GameObject: {fileID: 1666587624992062501}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59be08f326401164a917d64ea038c0b1, type: 3}
+  m_Script: {fileID: 11500000, guid: 20a83ed1a5d2bc841b32314189af7900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 11400000, guid: a9e6686043369a14ca4532bb5bdbab96, type: 2}
-  distance: 3
-  maxSpeed: 1
+  maxSpeed: 1.5
+  wanderDuration: 1.5
