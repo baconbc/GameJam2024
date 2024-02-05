@@ -13,12 +13,20 @@ PrefabInstance:
       value: BouncyBall
       objectReference: {fileID: 0}
     - target: {fileID: 3498543995336930879, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3498543995336930879, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3498543995336930879, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+      objectReference: {fileID: 21300000, guid: b7b07197f26461843b73b9710ec54f8d, type: 3}
     - target: {fileID: 4598972932175395549, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
       propertyPath: speed
-      value: 5
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4598972932175395549, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
       propertyPath: damage
@@ -26,7 +34,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4598972932175395549, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
       propertyPath: bouncesRemaining
-      value: 1000
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5565129707833972661, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -38,7 +46,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5565129707833972661, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.036837485
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5565129707833972661, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -68,52 +76,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7869699690127879514, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
+      propertyPath: m_Size.x
+      value: 0.7324066
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869699690127879514, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
+      propertyPath: m_Size.y
+      value: 0.7783442
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869699690127879514, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.032504916
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869699690127879514, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.026346534
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6805480511739547507, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 552362932122398001, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2576378728880019055}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
---- !u!1 &2190860945999712403 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 552362932122398001, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
-  m_PrefabInstance: {fileID: 1859392107516100002}
-  m_PrefabAsset: {fileID: 0}
---- !u!70 &2576378728880019055
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2190860945999712403}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
-  m_Direction: 0

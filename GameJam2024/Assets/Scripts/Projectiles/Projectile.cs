@@ -29,8 +29,9 @@ public class Projectile : MonoBehaviour
     public virtual void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject other = collision.gameObject;
+        Debug.Log(other.tag);
 
-        if (other.tag == noCollide || other.tag == "Projectile")
+        if (other.tag == noCollide || other.tag == "Projectile" || other.tag == "Shield")
         {
             return;
         }
@@ -56,15 +57,15 @@ public class Projectile : MonoBehaviour
         Debug.Log("returning to sender");
         noCollide = ""; // projectile has been parried and now targets enemies instead of players
 
-        Debug.Log(collision.contacts[0].normal);
-        Debug.Log(collision.collider.transform.position);
-        Debug.Log(shield.position);
+        //Debug.Log(collision.contacts[0].normal);
+        //Debug.Log(collision.collider.transform.position);
+        //Debug.Log(shield.position);
         //float y = (collision.contacts[0].point.y - shield.position.y)/shield.GetComponent<BoxCollider2D>().bounds.size.y;
         //float x = (collision.contacts[0].point.x - shield.position.x)/shield.GetComponent<BoxCollider2D>().bounds.size.x;
         //Vector2 dir = new Vector2(x, y).normalized;
         Vector2 dir = Vector2.Reflect(rb.velocity, collision.contacts[0].normal).normalized;
 
-      
+        
         float rotation = (Mathf.Atan2(-dir.y, -dir.x) * Mathf.Rad2Deg) + 90;
 
         Debug.Log(rb.rotation);
@@ -72,7 +73,7 @@ public class Projectile : MonoBehaviour
         rb.rotation = rotation;
 
         rb.velocity = dir * speed;
-        rb.position += dir * 0.1f;
+        rb.position += dir * 0.1f; // To prevent projectile collider staying inside shield
     }
 
 
