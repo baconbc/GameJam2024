@@ -13,6 +13,11 @@ public class Player : MonoBehaviour
         pr.SpawnPoint = transform.position;
     }
 
+    private void Start()
+    {
+        pr.MaxHealth = pr.Health;
+    }
+
     private void FixedUpdate()
     {
         pr.MousePos = (Vector2)Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
