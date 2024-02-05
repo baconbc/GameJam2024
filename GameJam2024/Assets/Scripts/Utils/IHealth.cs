@@ -6,7 +6,7 @@ public abstract class IHealth : MonoBehaviour
 {
     [SerializeField] private int maxHealth;
     private int health;
-    private StatusEffectManager sem;
+    protected StatusEffectManager sem;
 
     public virtual void Awake()
     {

@@ -43,7 +43,7 @@ public class StatusEffectManager : MonoBehaviour
         }
     }
 
-    private void RemoveStatusEffect()
+    public void RemoveStatusEffect()
     {
         currentEffect.Remove();
         currentEffect = null;

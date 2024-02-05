@@ -13,8 +13,8 @@ public class PlayerHealth : IHealth
 
         Signal signal = GameSignals.PlayerDeath;
         signal.Dispatch();
-
         ResetHealth();
+        sem.RemoveStatusEffect();
     }
 
     protected override void OnSetHealth()
