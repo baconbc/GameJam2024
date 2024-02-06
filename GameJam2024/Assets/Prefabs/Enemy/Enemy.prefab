@@ -82,6 +82,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 30
   bloodSplatter: {fileID: 719315845465637395, guid: 6ae5adece9cf14a4fbaf473f4cb3af7b, type: 3}
+  damageSound: RatHurt
 --- !u!1 &6536080735805865685
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pr: {fileID: 11400000, guid: a9e6686043369a14ca4532bb5bdbab96, type: 2}
-  projectile: {fileID: 552362932122398001, guid: 10867c9b44bedaf4bb1b83a74b7b64fd, type: 3}
+  projectile: {fileID: 552362932122398001, guid: d9bdc88341bf2af4cb798318aea0a881, type: 3}
   shootFrequency: 2
   timer: 0
 --- !u!50 &3796231743678225447

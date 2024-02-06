@@ -9,6 +9,7 @@ public static class GameSignals
 	public static readonly Signal UpdatePlayerHealth = new("UpdatePlayerHealth");
 
     public static readonly Signal PlayerDeath = new("PlayerDeath");
+	public static readonly Signal ResetPlayerHealth = new("ResetPlayerHealth");
 
 	public static readonly Signal Earth = new("Earth");
 	public static readonly Signal Water = new("Water");

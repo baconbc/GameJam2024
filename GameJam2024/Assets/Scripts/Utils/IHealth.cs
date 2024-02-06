@@ -44,7 +44,7 @@ public abstract class IHealth : MonoBehaviour
     }
 
 
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         SetHealth(health - damage);
         if (health <= 0)

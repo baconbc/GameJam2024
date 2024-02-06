@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyHealth : IHealth
 {
     [SerializeField] private GameObject bloodSplatter;
+    [SerializeField] private string damageSound = "Hurt";
 
     //public void OnTriggerEnter2D(Collider2D collision)
     //{
@@ -25,6 +26,7 @@ public class EnemyHealth : IHealth
     protected override void Die()
     {
         Instantiate(bloodSplatter, transform.position, Quaternion.identity);
+        AudioManager.Instance.Play(damageSound, "enemy");
         Destroy(transform.parent.gameObject);
     }
 
@@ -36,5 +38,11 @@ public class EnemyHealth : IHealth
     protected override bool ShouldTakeDamage(Projectile p)
     {
         return p.noCollide != "Enemy";
+    }
+
+    public override void TakeDamage(int damage)
+    {
+        base.TakeDamage(damage);
+        AudioManager.Instance.Play(damageSound, "enemy");
     }
 }

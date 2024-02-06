@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 754640946912365021, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
+      propertyPath: damageSound
+      value: RatHurt
+      objectReference: {fileID: 0}
     - target: {fileID: 3256803556330873649, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
       propertyPath: m_Color.b
       value: 0.3207547
@@ -64,6 +68,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4371416567293865656, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 552362932122398001, guid: a14a55dffb24ff94b85acd731d72cbb9, type: 3}
     - target: {fileID: 6536080735805865685, guid: 22ac33d790c004f40b040604cb0a6cb5, type: 3}
       propertyPath: m_Name
       value: AxeThrower

@@ -20,11 +20,19 @@ public class Shield : MonoBehaviour
     private bool parrying = false;
     [SerializeField] private float maxParryTime = 0.1f; // how long player has to parry something
     private float parryTimer;
+    private Animator parryAnim;
+    private bool hasPlayedAnim = false;
+
+    // Cursor
+    [SerializeField] private Texture2D cursorParry;
+    [SerializeField] private Texture2D cursorCanParry;
+    [SerializeField] private Texture2D cursorCantParry;
+    private CursorMode cursorMode = CursorMode.Auto;
+    private Vector2 hotSpot = Vector2.zero;
 
     // Audio
-    AudioSource audio;
-    public AudioClip shieldHitAudio;
-    public AudioClip shieldReflectAudio;
+    //public AudioClip shieldHitAudio;
+    //public AudioClip shieldReflectAudio;
     [SerializeField] private float slowdownTime;
     [SerializeField] private float timer;
     private bool slowdownCheck = false;
@@ -35,8 +43,10 @@ public class Shield : MonoBehaviour
         shieldInput = new PlayerInput();
         shieldInput.InGame.ShieldParry.started += OnShieldParry;
         OnEnable();
-        audio = GetComponent<AudioSource>();
+        //audio = GetComponent<AudioSource>();
         timer = slowdownTime;
+        parryAnim = transform.GetChild(0).GetComponent<Animator>();
+        Cursor.SetCursor(cursorCanParry, hotSpot, cursorMode);
     }
 
     private void OnEnable()
@@ -79,6 +89,8 @@ public class Shield : MonoBehaviour
                 parryTimer = 0f;
                 parrying = false;
                 cooldown = true;
+                hasPlayedAnim = false;
+                Cursor.SetCursor(cursorCantParry, hotSpot, cursorMode);
             }
         }
 
@@ -90,6 +102,7 @@ public class Shield : MonoBehaviour
             {
                 parryTimer = 0f;
                 cooldown = false;
+                Cursor.SetCursor(cursorCanParry, hotSpot, cursorMode);
             }
         }
     }
@@ -99,6 +112,7 @@ public class Shield : MonoBehaviour
         if (!cooldown)
         {
             parrying = true;
+            Cursor.SetCursor(cursorParry, hotSpot, cursorMode);
         }
     }
 
@@ -116,14 +130,20 @@ public class Shield : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject other = collision.gameObject;
-        Debug.Log("shield hit");
-        Debug.Log(other.name);
+        //Debug.Log("shield hit");
+        //Debug.Log(other.name);
 
         if (other.tag == "Projectile")
         {
             if (parrying)
             {
                 Parry(collision);
+                if (!hasPlayedAnim)
+                {
+                    parryAnim.SetTrigger("PlayOnce");
+                    hasPlayedAnim = true;
+                }
+
             }
             else
             {
@@ -140,14 +160,14 @@ public class Shield : MonoBehaviour
             Time.timeScale = 0.2f;
             slowdownCheck = true;
         }*/
-        Debug.Log("Parrying");
+        //Debug.Log("Parrying");
         collision.gameObject.GetComponent<Projectile>().ReturnToSender(transform, collision);
-        AudioManager.Instance.Play("ShieldReflect");
+        AudioManager.Instance.Play("ShieldReflect", "player");
     }
 
     private void Block(Collision2D collision)
     {
         Destroy(collision.gameObject);
-        AudioManager.Instance.Play("ShieldHit");
+        AudioManager.Instance.Play("ShieldHit", "player");
     }
 }

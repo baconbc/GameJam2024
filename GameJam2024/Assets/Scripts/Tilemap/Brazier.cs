@@ -5,9 +5,9 @@ using UnityEngine;
 public class Brazier : MonoBehaviour
 {
     [SerializeField] string element;
-    [SerializeField] Sprite lit;
     private SpriteRenderer sr;
     public bool islit = false;
+    private Animator animator;
 
     // Start is called before the first frame update
     void Awake()
@@ -17,6 +17,7 @@ public class Brazier : MonoBehaviour
         GameSignals.Water.AddListener(Water);
         GameSignals.Wind.AddListener(Wind);
         sr = gameObject.GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     void OnDestroy()
@@ -31,18 +32,20 @@ public class Brazier : MonoBehaviour
     {
         if (element == "wind" && !islit)
         {
-            sr.sprite = lit;
             islit = true;
             print("You hear the sound of wind");
+            animator.SetFloat("earth-wind", 1f);
+            animator.SetBool("isLit", true);
         }
     }
     private void Water(ISignalParameters parameters)
     {
         if (element == "water" && !islit)
         {
-            sr.sprite = lit;
             islit = true;
             print("You hear the sound of water");
+            animator.SetFloat("water-fire", 1f);
+            animator.SetBool("isLit", true);
         }
     }
 
@@ -50,9 +53,10 @@ public class Brazier : MonoBehaviour
     {
         if (element == "fire" && !islit)
         {
-            sr.sprite = lit;
             islit = true;
             print("You hear the sound of fire");
+            animator.SetFloat("water-fire", -1f);
+            animator.SetBool("isLit", true);
         }
     }
 
@@ -60,9 +64,10 @@ public class Brazier : MonoBehaviour
     {
         if (element == "earth" && !islit)
         {
-            sr.sprite = lit;
             islit = true;
             print("You hear the sound of earth");
+            animator.SetFloat("earth-wind", -1f);
+            animator.SetBool("isLit", true);
         }
     }
 }

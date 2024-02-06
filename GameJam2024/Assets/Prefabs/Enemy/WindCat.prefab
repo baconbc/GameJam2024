@@ -290,3 +290,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 30
   bloodSplatter: {fileID: 719315845465637395, guid: 6ae5adece9cf14a4fbaf473f4cb3af7b, type: 3}
+  damageSound: CatHurt

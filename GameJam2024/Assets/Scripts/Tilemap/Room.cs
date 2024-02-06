@@ -129,26 +129,36 @@ public class Room : MonoBehaviour
         {
             Signal signal = GameSignals.Water;
             signal.Dispatch();
+            ResetPlayerHealth();
         }
         else if (isFireRoom)
         {
             Signal signal = GameSignals.Fire;
             signal.Dispatch();
+            ResetPlayerHealth();
         }
         if (isEarthRoom)
         {
             Signal signal = GameSignals.Earth;
             signal.Dispatch();
+            ResetPlayerHealth();
         }
         else if (isWindRoom)
         {
             Signal signal = GameSignals.Wind;
             signal.Dispatch();
+            ResetPlayerHealth();
         }
         else if (isFinalRoom)
         {
             Debug.Log("YOU WIN!!");
         }
+    }
+
+    public void ResetPlayerHealth()
+    {
+        Signal signal = GameSignals.ResetPlayerHealth;
+        signal.Dispatch();
     }
 
     public void UnloadRoom()
