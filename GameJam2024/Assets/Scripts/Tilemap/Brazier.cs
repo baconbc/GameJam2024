@@ -18,6 +18,14 @@ public class Brazier : MonoBehaviour
         GameSignals.Wind.AddListener(Wind);
         sr = gameObject.GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+
+        if (islit)
+        {
+            Wind();
+            Water();
+            Fire();
+            Earth();
+        }
     }
 
     void OnDestroy()
@@ -32,8 +40,16 @@ public class Brazier : MonoBehaviour
     {
         if (element == "wind" && !islit)
         {
-            islit = true;
             print("You hear the sound of wind");
+            Wind();
+        }
+    }
+
+    private void Wind()
+    {
+        if (element == "wind")
+        {
+            islit = true;
             animator.SetFloat("earth-wind", 1f);
             animator.SetBool("isLit", true);
         }
@@ -42,8 +58,16 @@ public class Brazier : MonoBehaviour
     {
         if (element == "water" && !islit)
         {
-            islit = true;
             print("You hear the sound of water");
+            Water();
+        }
+    }
+
+    private void Water()
+    {
+        if (element == "water")
+        {
+            islit = true;
             animator.SetFloat("water-fire", 1f);
             animator.SetBool("isLit", true);
         }
@@ -53,8 +77,16 @@ public class Brazier : MonoBehaviour
     {
         if (element == "fire" && !islit)
         {
-            islit = true;
             print("You hear the sound of fire");
+            Fire();
+        }
+    }
+
+    private void Fire()
+    {
+        if (element == "fire")
+        {
+            islit = true;
             animator.SetFloat("water-fire", -1f);
             animator.SetBool("isLit", true);
         }
@@ -64,8 +96,16 @@ public class Brazier : MonoBehaviour
     {
         if (element == "earth" && !islit)
         {
-            islit = true;
             print("You hear the sound of earth");
+            Earth();
+        }
+    }
+
+    private void Earth()
+    {
+        if (element == "earth")
+        {
+            islit = true;
             animator.SetFloat("earth-wind", -1f);
             animator.SetBool("isLit", true);
         }

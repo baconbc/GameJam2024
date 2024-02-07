@@ -54,7 +54,8 @@ public class Room : MonoBehaviour
     {
         if (isFinalRoom)
         {
-            CloseDoors();
+            //CloseDoors();
+            CloseDoorsNoSound();
         }
     }
 
@@ -71,7 +72,8 @@ public class Room : MonoBehaviour
     {
         if (!CompletedRoom && RoomActive)
         {
-            ResetRoom();
+            //ResetRoom();
+            ResetRoomNoSound();
         }
     }
 
@@ -80,6 +82,15 @@ public class Room : MonoBehaviour
         foreach (GameObject enemy in livingEnemies) Destroy(enemy);
         livingEnemies.Clear();
         OpenDoors();
+        UnloadRoom();
+        EnableTriggers();
+    }
+
+    private void ResetRoomNoSound()
+    {
+        foreach (GameObject enemy in livingEnemies) Destroy(enemy);
+        livingEnemies.Clear();
+        OpenDoorsNoSound();
         UnloadRoom();
         EnableTriggers();
     }
@@ -202,7 +213,16 @@ public class Room : MonoBehaviour
 
     public void CloseDoors()
     {
-        doorSound.Play();
+        //doorSound.Play();
+        AudioManager.Instance.Play("DoorClose");
+        foreach (GameObject door in doors)
+        {
+            door.GetComponent<Door>().CloseDoor();
+        }
+    }
+
+    public void CloseDoorsNoSound()
+    {
         foreach (GameObject door in doors)
         {
             door.GetComponent<Door>().CloseDoor();
@@ -211,8 +231,17 @@ public class Room : MonoBehaviour
 
     public void OpenDoors()
     {
-        doorSound.clip = openSound;
-        doorSound.Play();
+        //doorSound.clip = openSound;
+        //doorSound.Play();
+        AudioManager.Instance.Play("DoorOpen");
+        foreach (GameObject door in doors)
+        {
+            door.GetComponent<Door>().OpenDoor();
+        }
+    }
+
+    public void OpenDoorsNoSound()
+    {
         foreach (GameObject door in doors)
         {
             door.GetComponent<Door>().OpenDoor();
