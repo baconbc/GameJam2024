@@ -5,16 +5,19 @@ using UnityEngine;
 public class PlayerHealth : IHealth
 {
     [SerializeField] private PlayerObject pr;
+    [SerializeField] private int regenAmount;
 
     public override void Awake()
     {
         base.Awake();
         GameSignals.ResetPlayerHealth.AddListener(ResetPlayerHealth);
+        GameSignals.RegenPlayerHealth.AddListener(RegenPlayerHealth);
     }
 
     private void OnDestroy()
     {
         GameSignals.ResetPlayerHealth.RemoveListener(ResetPlayerHealth);
+        GameSignals.RegenPlayerHealth.RemoveListener(RegenPlayerHealth);
     }
 
     protected override void Die()
@@ -50,5 +53,18 @@ public class PlayerHealth : IHealth
     private void ResetPlayerHealth(ISignalParameters parameters)
     {
         ResetHealth();
+    }
+
+    public void RegenPlayerHealth(ISignalParameters parameters)
+    {
+        int h = GetHealth();
+        int m = GetMaxHealth();
+        if (h < m)
+        {
+            h += regenAmount;
+            if (h > m) h = GetMaxHealth();
+            SetHealth(h);
+            print(GetHealth());
+        }
     }
 }

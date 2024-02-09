@@ -166,11 +166,19 @@ public class Room : MonoBehaviour
             Debug.Log("YOU WIN!!");
             SceneManager.LoadScene("WinScene");
         }
+        else
+            RegenPlayerHealth();
     }
 
     public void ResetPlayerHealth()
     {
         Signal signal = GameSignals.ResetPlayerHealth;
+        signal.Dispatch();
+    }
+
+    public void RegenPlayerHealth()
+    {
+        Signal signal = GameSignals.RegenPlayerHealth;
         signal.Dispatch();
     }
 
