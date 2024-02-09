@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UpdatedDungeon.unity
     guid: f7f6352e8deaba14c9aad78dd14e4d8e
+  - enabled: 1
+    path: Assets/Scenes/WinScreen.unity
+    guid: d90d0c7b99dc4d547940d47079ca767d
   m_configObjects: {}

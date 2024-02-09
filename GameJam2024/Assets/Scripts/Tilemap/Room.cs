@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Room : MonoBehaviour
 {
@@ -163,6 +164,7 @@ public class Room : MonoBehaviour
         else if (isFinalRoom)
         {
             Debug.Log("YOU WIN!!");
+            SceneManager.LoadScene("WinScene");
         }
     }
 
