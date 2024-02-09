@@ -468,8 +468,6 @@ MonoBehaviour:
   cursorParry: {fileID: 2800000, guid: 86e60d457f512a7469c8380dd51caf9c, type: 3}
   cursorCanParry: {fileID: 2800000, guid: 5fefe931970f9cc4983991893607d819, type: 3}
   cursorCantParry: {fileID: 2800000, guid: c5ae15edd5ffa9941acec98e21357a28, type: 3}
-  shieldHitAudio: {fileID: 8300000, guid: 3348e37582620e64a8b285ae53590c3e, type: 3}
-  shieldReflectAudio: {fileID: 8300000, guid: 22b9f5142615dbb4a9c9318463028b70, type: 3}
   slowdownTime: 0.1
   timer: 0
   doSlowdown: 0
@@ -722,4 +720,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 150
+  stretchAmount: 1.1
+  maxStretchTime: 0.3
   pr: {fileID: 11400000, guid: a9e6686043369a14ca4532bb5bdbab96, type: 2}
+  regenAmount: 10

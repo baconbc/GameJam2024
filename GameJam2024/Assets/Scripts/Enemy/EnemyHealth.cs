@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class EnemyHealth : IHealth
 {
+    [Header("Enemy Vars")]
     [SerializeField] private GameObject bloodSplatter;
     [SerializeField] private string damageSound = "Hurt";
 

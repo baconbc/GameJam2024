@@ -7,20 +7,52 @@ public abstract class IHealth : MonoBehaviour
     [SerializeField] private int maxHealth;
     private int health;
     protected StatusEffectManager sem;
+    private Transform parentT;
+
+    [Header("Stretch Sprite Vars")]
+    [SerializeField] private float stretchAmount = 1.1f;
+    [SerializeField] private float maxStretchTime = 0.3f;
+    private float stretchTimer;
+    private bool stretching = false;
+    private Vector2 stretchScale;
+    private Vector2 defaultScale;
 
     public virtual void Awake()
     {
         SetHealth(maxHealth);
         sem = transform.parent.GetComponent<StatusEffectManager>();
+
+        parentT = transform.parent.transform;
+        defaultScale = parentT.localScale;
+        stretchScale = new Vector2 { x = defaultScale.x, y = defaultScale.y * stretchAmount };
     }
 
+    private void FixedUpdate()
+    {
+        if (stretching)
+        {
+            if (stretchTimer >= maxStretchTime)
+            {
+                stretching = false;
+                stretchTimer = 0f;
+                ScaleSprite(defaultScale);
+            }
+            else
+                stretchTimer += Time.fixedDeltaTime;
+        }
+    }
 
     public int GetHealth()
     {
         return health;
     }
 
-    private void SetHealth(int value)
+    public int GetMaxHealth()
+    {
+        return maxHealth;
+    }
+
+    protected void SetHealth(int value)
     {
         health = value;
         OnSetHealth();
@@ -51,6 +83,20 @@ public abstract class IHealth : MonoBehaviour
         {
             Die();
         }
+        else
+        {
+            stretching = true;
+            stretchTimer = 0f;
+            ScaleSprite(stretchScale);
+        }
+    }
+
+    private void ScaleSprite(Vector2 newScale)
+    {
+        Vector3 scale = parentT.localScale;
+        scale.Set(newScale.x, newScale.y, 1f);
+
+        parentT.localScale = scale;
     }
 
     public void ResetHealth()
